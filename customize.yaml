@@ -1,0 +1,7 @@
+#sensor.phone_alarm_time:
+#- hidden: true
+#sensor.phone_alarm_day:
+#- hidden: true
+group.alarm_sensors:
+  control: hidden
+  hidden: true

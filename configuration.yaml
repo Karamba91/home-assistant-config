@@ -1,0 +1,112 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Eriks place
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret my_latitude
+  longitude: !secret my_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret my_altitude
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Stockholm
+  # Customization file
+  customize: !include customize.yaml
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  base_url: !secret base_url_input
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  include_used_components: true
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+#conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+  - platform: vasttrafik
+    key: !secret vasttrafik_key
+    secret: !secret vasttrafik_secret
+    departures:
+      - from: Bergsprängaregatan
+        heading : Brunnsparken
+  - platform: bmp085
+    i2c_address: 0x77
+  - platform: template
+    sensors:
+      alarm_time:
+        entity_id: ["sensor.phone_alarm_day", "sensor.phone_alarm_time"]
+        icon_template: "mdi:alarm"
+        friendly_name: "Next alarm"
+        value_template: >-
+          {% if is_state('sensor.phone_alarm_day','%dayname') %}
+          No alarm set
+          {% else %}
+          {{ states('sensor.phone_alarm_day') }} @ {{ states('sensor.phone_alarm_time') }} 
+          {% endif %}
+
+
+# Text to speech
+#tts:
+#  - platform: google
+
+# Cloud
+#cloud:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+# Device tracker
+#device_tracker:
+#  - platform: nmap_tracker
+#    hosts: 192.168.1.210/24
+#    home_interval: 10
+#    new_device_defaults:
+#      track_new_devices: False
+#      hide_if_away: False
+
+google_assistant:
+  project_id: home-assistant-94b3b
+  api_key: !secret google_api_key 
+
+tradfri:
+  host: 192.168.1.185
+  allow_tradfri_groups: false
+
+hassio:
+
+
+media_player:
+        - platform: spotify
+          client_id: !secret spotify_client_id
+          client_secret: !secret spotify_client_secret
