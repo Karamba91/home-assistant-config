@@ -3,7 +3,9 @@ default_view:
         view: yes
         entities:
                 - group.alarm_display
-                - group.climate_sensor
+                - group.climate_sensors
+                - automation.auto_turn_off_lights
+                - automation.lights_at_sunset
                 - group.living_room_lights
                 - media_player.spotify
                 - sun.sun
@@ -40,7 +42,8 @@ google_home:
                 - media_player.eriks_group
 living_room_lights:
         name: Living room
+        control: hidden
         entities:
                 - light.living_room_window
                 - light.hallway_light
-                - switch.switch_light
+                - light.switch_light
