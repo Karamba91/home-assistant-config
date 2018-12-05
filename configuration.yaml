@@ -113,3 +113,16 @@ media_player:
         - platform: spotify
           client_id: !secret spotify_client_id
           client_secret: !secret spotify_client_secret
+
+light:
+        - platform: template
+          lights:
+                  switch_light:
+                          friendly_name: "Switch light"
+                          value_template: '{{ states.switch.switch_lamp.state }}'
+                          turn_on:
+                                  service: switch.turn_on
+                                  entity_id: switch.switch_lamp
+                          turn_off:
+                                  service: switch.turn_off
+                                  entity_id: switch.switch_lamp
