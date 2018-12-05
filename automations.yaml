@@ -11,10 +11,8 @@
       entity_id:
       - light.hallway_light
       - light.living_room_window
+      - light.switch_light
     service: light.turn_on
-  - data:
-      entity_id: switch.switch_lamp
-    service: switch.turn_on
 - id: '1535561377167'
   alias: Auto turn off lights
   trigger:
@@ -32,8 +30,8 @@
       - light.hallway_light
     service: light.turn_off
   - data:
-      entity_id: switch.switch_lamp
-    service: switch.turn_off
+      entity_id: light.switch_light
+    service: light.turn_off
 - id: '1540238502789'
   alias: 'Lights in the morning '
   trigger:
@@ -58,9 +56,6 @@
       entity_id: light.living_room_window
       transition: '20'
     service: light.turn_on
-  - data:
-      entity_id: switch.switch_lamp
-    service: switch.turn_on
 - id: '1542232622410'
   alias: Trigger radio
   trigger:
