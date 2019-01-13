@@ -102,10 +102,6 @@ google_assistant:
   project_id: home-assistant-94b3b
   api_key: !secret google_api_key 
 
-tradfri:
-  host: 192.168.1.185
-  allow_tradfri_groups: false
-
 hassio:
 
 media_player:

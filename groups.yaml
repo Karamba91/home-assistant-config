@@ -6,6 +6,8 @@ default_view:
                 - group.climate_sensors
                 - automation.auto_turn_off_lights
                 - automation.lights_at_sunset
+                - automation.lights_in_the_morning_
+                - automation.trigger_radio
                 - group.living_room_lights
                 - media_player.spotify
                 - sun.sun
@@ -47,3 +49,4 @@ living_room_lights:
                 - light.living_room_window
                 - light.hallway_light
                 - light.switch_light
+                - light.wakeup_light
