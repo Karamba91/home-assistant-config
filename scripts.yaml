@@ -1,0 +1,8 @@
+'1545863420408':
+  alias: Radio on Living room speaker
+  sequence:
+  - data:
+      entity_id: media_player.bedroom_speaker
+      media_content_id: https://sverigesradio.se/topsy/direkt/tunein/164-hi.mp3
+      media_content_type: audio/mp3
+    service: media_player.play_media

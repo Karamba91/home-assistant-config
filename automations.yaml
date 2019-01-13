@@ -59,12 +59,9 @@
 - id: '1542232622410'
   alias: Trigger radio
   trigger:
-  - at: '22:58'
+  - at: '12:29'
     platform: time
   condition: []
   action:
-  - data:
-      entity_id: media_player.living_room_speaker
-      media_content_id: https://sverigesradio.se/topsy/direkt/tunein/164-hi.mp3
-      media_content_type: audio/mp3
-    service: media_player.media_play
+  - data: {}
+    service: script.1545863420408
