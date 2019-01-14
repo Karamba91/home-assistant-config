@@ -6,7 +6,7 @@ default_view:
                 - group.climate_sensors
                 - automation.auto_turn_off_lights
                 - automation.lights_at_sunset
-                - automation.lights_in_the_morning_
+                - automation.lights_in_the_morning
                 - automation.trigger_radio
                 - group.living_room_lights
                 - media_player.spotify
