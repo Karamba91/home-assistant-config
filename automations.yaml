@@ -59,8 +59,8 @@
 - id: '1542232622410'
   alias: Trigger radio
   trigger:
-  - at: '12:29'
-    platform: time
+    platform: template
+    value_template: "{{ states('sensor.dayoftheweek') + ' @ ' + states('sensor.time') == states('sensor.alarm_time') }}"
   condition: []
   action:
   - data: {}

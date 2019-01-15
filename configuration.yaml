@@ -57,7 +57,7 @@ map:
 # Track the sun
 sun:
 
-# Weather prediction
+# Sensors, should be moved to separate file
 sensor:
   - platform: vasttrafik
     key: !secret vasttrafik_key
@@ -79,6 +79,15 @@ sensor:
           {% else %}
           {{ states('sensor.phone_alarm_day') }} @ {{ states('sensor.phone_alarm_time') }} 
           {% endif %}
+  - platform: time_date
+    display_option:
+    - 'time'
+  - platform: template
+    sensors:
+      dayoftheweek:
+        value_template: >
+          {{ ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'][now().weekday()] }}
+        entity_id: sensor.time
 
 
 # Text to speech
