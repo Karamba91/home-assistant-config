@@ -9,6 +9,7 @@ default_view:
                 - automation.lights_in_the_morning
                 - automation.trigger_radio
                 - group.living_room_lights
+                - group.bedroom_lights
                 - media_player.spotify
                 - sun.sun
                 - weather.smhi_home
@@ -50,3 +51,9 @@ living_room_lights:
                 - light.hallway_light
                 - light.switch_light
                 - light.wakeup_light
+bedroom_lights:
+        name: Bedroom
+        control: hidden
+        entities:
+                - light.bedroom_window_1
+                - light.bedroom_window_2
