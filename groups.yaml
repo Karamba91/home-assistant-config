@@ -2,7 +2,7 @@ default_view:
         name: Home
         view: yes
         entities:
-                - group.alarm_display
+                - group.alarm_sensors
                 - group.climate_sensors
                 - automation.auto_turn_off_lights
                 - automation.lights_at_sunset
@@ -21,19 +21,13 @@ climate_sensors:
         entities:
                 - sensor.bmp085_sensor_temperature
                 - sensor.bmp085_sensor_pressure
-alarm_display:
-        name: Alarm display
-        control: hidden
-        entities:
-                - sensor.alarm_time
-               
+ 
 alarm_sensors:
         name: Alarm sensor
-        view: false
         control: hidden
         entities:
-                - sensor.phone_alarm_day
                 - sensor.phone_alarm_time
+
 google_home:
         name: Google home
         view: true
@@ -50,10 +44,10 @@ living_room_lights:
                 - light.living_room_window
                 - light.hallway_light
                 - light.switch_light
-                - light.wakeup_light
 bedroom_lights:
         name: Bedroom
         control: hidden
         entities:
                 - light.bedroom_window_1
                 - light.bedroom_window_2
+                - light.wakeup_light

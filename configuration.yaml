@@ -67,28 +67,11 @@ sensor:
         heading : Brunnsparken
   - platform: bmp085
     i2c_address: 0x77
-  - platform: template
-    sensors:
-      alarm_time:
-        entity_id: ["sensor.phone_alarm_day", "sensor.phone_alarm_time"]
-        icon_template: "mdi:alarm"
-        friendly_name: "Next alarm"
-        value_template: >-
-          {% if is_state('sensor.phone_alarm_day','%dayname') %}
-          No alarm set
-          {% else %}
-          {{ states('sensor.phone_alarm_day') }} @ {{ states('sensor.phone_alarm_time') }} 
-          {% endif %}
   - platform: time_date
-    display_option:
-    - 'time'
-  - platform: template
-    sensors:
-      dayoftheweek:
-        value_template: >
-          {{ ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'][now().weekday()] }}
-        entity_id: sensor.time
-
+    display_options:
+            - 'time'
+            - 'date'
+            - 'date_time'
 
 # Text to speech
 tts:

@@ -35,7 +35,7 @@
       entity_id: light.switch_light
     service: light.turn_off
 - id: '1540238502789'
-  alias: 'Lights in the morning '
+  alias: 'Lights in the morning'
   trigger:
   - at: 06:00
     platform: time
@@ -62,8 +62,27 @@
   alias: Trigger radio
   trigger:
     platform: template
-    value_template: "{{ states('sensor.dayoftheweek') + ' @ ' + states('sensor.time') == states('sensor.alarm_time') }}"
+    value_template: "{{ strptime(states('sensor.phone_alarm_time'), '%Y-%m-%d %H:%M') == strptime(states('sensor.date_time'), '%Y-%m-%d, %H:%M') }}"
   condition: []
   action:
   - data: {}
     service: script.1545863420408
+#- alias: 'Wakeup lights'
+#  trigger:
+#    platform: template
+#    value_template: false
+#  action:
+#  - data:
+#      brigthness_pct: '99'
+#      entity_id: 
+#        - light.bedroom_window_1
+#      transition: '1200'
+#    service: light.turn_on
+#  - data:
+#      brigthness_pct: '99'
+#      entity_id: 
+#        - light.bedroom_window_2
+#      transition: '1200'
+#    service: light.turn_on
+
+
