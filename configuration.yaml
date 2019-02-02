@@ -93,6 +93,8 @@ script: !include scripts.yaml
 google_assistant:
   project_id: home-assistant-94b3b
   api_key: !secret google_api_key 
+  exposed_domains:
+          - light
 
 hassio:
 
