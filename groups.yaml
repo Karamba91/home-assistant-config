@@ -4,6 +4,7 @@ default_view:
         entities:
                 - group.alarm_sensors
                 - group.climate_sensors
+                - automation.wakeup_lights
                 - automation.auto_turn_off_lights
                 - automation.lights_at_sunset
                 - automation.lights_in_the_morning
@@ -50,4 +51,4 @@ bedroom_lights:
         entities:
                 - light.bedroom_window_1
                 - light.bedroom_window_2
-                - light.wakeup_light
+                - light.wakeup

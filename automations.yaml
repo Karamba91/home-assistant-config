@@ -67,22 +67,14 @@
   action:
   - data: {}
     service: script.1545863420408
-#- alias: 'Wakeup lights'
-#  trigger:
-#    platform: template
-#    value_template: false
-#  action:
-#  - data:
-#      brigthness_pct: '99'
-#      entity_id: 
-#        - light.bedroom_window_1
-#      transition: '1200'
-#    service: light.turn_on
-#  - data:
-#      brigthness_pct: '99'
-#      entity_id: 
-#        - light.bedroom_window_2
-#      transition: '1200'
-#    service: light.turn_on
-
-
+- alias: 'Wakeup lights'
+  id: '45654'
+  trigger:
+    platform: template
+    value_template: "{{ ((as_timestamp(strptime(states('sensor.phone_alarm_time'), '%Y-%m-%d %H:%M')) - 20*60) | timestamp_custom('%Y-%m-%d, %H:%M')) == strptime(states('sensor.date_time'), '%Y-%m-%d %H:%M') }}"
+  action:
+  - data:
+      brightness_pct: '99'
+      entity_id: light.wakeup
+      transition: '1200'
+    service: light.turn_on
