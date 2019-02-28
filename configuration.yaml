@@ -115,3 +115,5 @@ light:
         turn_off:
           service: switch.turn_off
           entity_id: switch.switch_lamp
+
+system_health:

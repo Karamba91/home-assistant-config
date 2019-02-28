@@ -1,5 +1,4 @@
-- id: '1535560519137'
-  alias: Lights at sunset
+- alias: Lights at sunset
   trigger:
   - event: sunset
     offset: -01:00:00
@@ -13,8 +12,7 @@
       - light.living_room_window
       - light.switch_light
     service: light.turn_on
-- id: '1535561377167'
-  alias: Auto turn off lights
+- alias: Auto turn off lights
   trigger:
   - at: '23:00'
     platform: time
@@ -34,8 +32,7 @@
   - data:
       entity_id: light.switch_light
     service: light.turn_off
-- id: '1540238502789'
-  alias: 'Lights in the morning'
+- alias: 'Lights in the morning'
   trigger:
   - at: 06:00
     platform: time
@@ -58,8 +55,7 @@
       entity_id: light.living_room_window
       transition: '20'
     service: light.turn_on
-- id: '1542232622410'
-  alias: Trigger radio
+- alias: Trigger radio
   trigger:
     platform: template
     value_template: "{{ strptime(states('sensor.phone_alarm_time'), '%Y-%m-%d %H:%M') == strptime(states('sensor.date_time'), '%Y-%m-%d, %H:%M') }}"
@@ -68,7 +64,6 @@
   - data: {}
     service: script.1545863420408
 - alias: 'Wakeup lights'
-  id: '45654'
   trigger:
     platform: template
     value_template: "{{ ((as_timestamp(strptime(states('sensor.phone_alarm_time'), '%Y-%m-%d %H:%M')) - 20*60) | timestamp_custom('%Y-%m-%d, %H:%M')) == strptime(states('sensor.date_time'), '%Y-%m-%d %H:%M') }}"
