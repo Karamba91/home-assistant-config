@@ -73,3 +73,23 @@
       entity_id: light.wakeup
       transition: '1200'
     service: light.turn_on
+
+- alias: TV paused
+  trigger:
+    - platform: state
+      entity_id: 'media_player.living_room_tv'
+      from: 'playing'
+      to: 'paused'
+  action:
+      service: scene.turn_on
+      entity_id: scene.livingroom_normal
+- alias: TV playing
+  trigger:
+    - platform: state
+      entity_id: 'media_player.living_room_tv'
+      from: 'paused'
+      to: 'playing'
+  action:
+      service: scene.turn_on
+      entity_id: scene.livingroom_dim
+

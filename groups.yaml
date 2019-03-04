@@ -15,13 +15,14 @@ default_view:
                 - sun.sun
                 - weather.smhi_home
                 - sensor.bergsprangaregatan
+                - switch.living_room_dehumidifier
 
 climate_sensors:
         name: Climate sensor
         control: hidden
         entities:
-                - sensor.bmp085_sensor_temperature
-                - sensor.bmp085_sensor_pressure
+                - sensor.indoor_temperature
+                - sensor.indoor_pressure
  
 alarm_sensors:
         name: Alarm sensor
@@ -45,6 +46,7 @@ living_room_lights:
                 - light.living_room_window
                 - light.hallway_light
                 - light.switch_light
+                - light.test_light
 bedroom_lights:
         name: Bedroom
         control: hidden

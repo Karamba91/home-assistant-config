@@ -65,13 +65,16 @@ sensor:
     departures:
       - from: Bergsprängaregatan
         heading : Brunnsparken
-  - platform: bmp085
-    i2c_address: 0x77
   - platform: time_date
     display_options:
             - 'time'
             - 'date'
             - 'date_time'
+  - platform: mqtt
+    state_topic: "home/phone_alarm_time"
+    name: phone_alarm_time
+    icon: mdi:alarm
+    qos: 1
 
 # Text to speech
 tts:
@@ -108,12 +111,14 @@ light:
     lights:
       switch_light:
         friendly_name: "Switch light"
-        value_template: '{{ states.switch.switch_lamp.state }}'
+        value_template: '{{ states.switch.tradfri_control_outlet.state }}'
         turn_on:
           service: switch.turn_on
-          entity_id: switch.switch_lamp
+          entity_id: switch.tradfri_control_outlet
         turn_off:
           service: switch.turn_off
-          entity_id: switch.switch_lamp
+          entity_id: switch.tradfri_control_outlet
 
 system_health:
+
+scene: !include scenes.yaml
