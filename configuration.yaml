@@ -19,12 +19,6 @@ frontend:
 # Enables configuration UI
 config:
 
-panel_iframe:
-  terminal:
-    title: Terminal
-    icon: mdi:console
-    url: !secret duck_dns_terminal_url
-
 http:
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: !secret base_url_input
@@ -41,9 +35,6 @@ http:
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   include_used_components: true
-
-# Allows you to issue voice commands from the frontend in enabled browsers
-#conversation:
 
 # Enables support for tracking state changes over time
 history:
@@ -78,20 +69,12 @@ sensor:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
-
-# Device tracker
-#device_tracker:
-#  - platform: nmap_tracker
-#    hosts: 192.168.1.210/24
-#    home_interval: 10
-#    new_device_defaults:
-#      track_new_devices: False
-#      hide_if_away: False
 
 google_assistant:
   project_id: home-assistant-94b3b
@@ -105,6 +88,11 @@ media_player:
   - platform: spotify
     client_id: !secret spotify_client_id
     client_secret: !secret spotify_client_secret
+  - platform: androidtv
+    host: 192.168.8.135
+    name: Philips_androidtv
+    adb_server_ip: 127.0.0.1
+    device_class: androidtv
 
 light:
   - platform: template
@@ -122,3 +110,5 @@ light:
 system_health:
 
 scene: !include scenes.yaml
+
+

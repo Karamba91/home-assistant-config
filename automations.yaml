@@ -12,6 +12,7 @@
       - light.living_room_window
       - light.switch_light
     service: light.turn_on
+
 - alias: Auto turn off lights
   trigger:
   - at: '23:00'
@@ -32,6 +33,7 @@
   - data:
       entity_id: light.switch_light
     service: light.turn_off
+
 - alias: 'Lights in the morning'
   trigger:
   - at: 06:00
@@ -55,6 +57,7 @@
       entity_id: light.living_room_window
       transition: '20'
     service: light.turn_on
+
 - alias: Trigger radio
   trigger:
     platform: template
@@ -63,6 +66,7 @@
   action:
   - data: {}
     service: script.1545863420408
+
 - alias: 'Wakeup lights'
   trigger:
     platform: template
@@ -83,6 +87,7 @@
   action:
       service: scene.turn_on
       entity_id: scene.livingroom_normal
+
 - alias: TV playing
   trigger:
     - platform: state
@@ -93,3 +98,10 @@
       service: scene.turn_on
       entity_id: scene.livingroom_dim
 
+- alias: Button toggle lights
+  trigger:
+    - platform: state
+      entity_id: 'sensor.xiaomi_button'
+      to: 'single'
+  action:
+      service: light.toggle
