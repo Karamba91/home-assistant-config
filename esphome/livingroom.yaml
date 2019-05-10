@@ -1,0 +1,37 @@
+esphome:
+  name: livingroom
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: '4G-Gateway-A939_2GEXT'
+  password: 'HN4992N8NTA'
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+i2c:
+  sda: D1
+  scl: D2
+  scan: True
+
+switch:
+  - platform: gpio
+    name: "Living Room Dehumidifier"
+    pin: D4
+
+sensor:
+  - platform: bmp085
+    temperature:
+      name: "Indoor temperature"
+    pressure:
+      name: "Indoor pressure"
+    update_interval: 60s
+  - platform: tcs34725
+    illuminance:
+      name: "Illuminance"
