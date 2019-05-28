@@ -12,9 +12,9 @@
     service: media_player.volume_set
 
 'start_svt_play':
-   alias: Start Netflix on Philips TV
+   alias: Start SVT play on Philips TV
    sequence:
-           - service: androidtv.adb_command
+   - service: androidtv.adb_command
      data:
        entity_id: media_player.philips_androidtv
        command: "am start -a android.intent.action.VIEW -d -n se.svt.android.svtplay/se.svt.svtplay.tv.ui.StartupActivity"

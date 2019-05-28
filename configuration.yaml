@@ -16,6 +16,9 @@ homeassistant:
 # Enables the frontend
 frontend:
 
+lovelace:
+  mode: yaml
+
 # Enables configuration UI
 config:
 
@@ -72,7 +75,7 @@ tts:
   - platform: google_translate
     service_name: google_say
 
-group: !include groups.yaml
+# group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 
@@ -89,7 +92,7 @@ media_player:
     client_id: !secret spotify_client_id
     client_secret: !secret spotify_client_secret
   - platform: androidtv
-    host: 192.168.8.135
+    host: 192.168.8.161
     name: Philips_androidtv
     adb_server_ip: 127.0.0.1
     device_class: androidtv

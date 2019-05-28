@@ -1,0 +1,72 @@
+title: My home
+
+views:
+  - title: Start
+    cards:
+      # Sensors
+      - type: markdown
+        title: "Sensors"
+        content: " "
+      - type: sensor
+        entity: sensor.indoor_temperature
+        graph: line
+        unit: °C
+        detail: 1
+        hours_to_show: 48
+      - type: sensor
+        entity: sensor.indoor_pressure
+        graph: line
+        unit: hPa
+        detail: 1
+        hours_to_show: 48
+
+        # Lights
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            title: "Lights"
+            content: " "
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.hallway_light
+              - type: light
+                entity: light.living_room_window
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.switch_light
+              - type: light
+                entity: light.wakeup
+        # Spotify
+      - type: media-control
+        entity: media_player.spotify
+  # Automations
+  - title: Automation control
+    cards:
+      - type: entity-filter
+        entities:
+           - automation.auto_turn_off_lights
+           - automation.button_toggle_lights
+           - automation.lights_at_sunset
+           - automation.lights_in_the_morning
+           - automation.trigger_radio
+           - automation.tv_paused
+           - automation.tv_playing
+           - automation.wakeup_lights
+        state_filter:
+           - "on"
+           - "off"
+
+
+  # Google Home unit units
+  - title: Google Home
+    cards:
+      - type: media-control
+        entity: media_player.living_room_tv
+      - type: media-control
+        entity: media_player.bedroom_tv
+      - type: media-control
+        entity: media_player.bedroom_speaker
+      - type: media-control
+        entity: media_player.living_room_speaker
