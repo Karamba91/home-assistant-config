@@ -38,6 +38,10 @@ views:
                 entity: light.switch_light
               - type: light
                 entity: light.wakeup
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.tradfri_light_7e23255204400095_65544
         # Spotify
       - type: media-control
         entity: media_player.spotify
@@ -70,3 +74,5 @@ views:
         entity: media_player.bedroom_speaker
       - type: media-control
         entity: media_player.living_room_speaker
+      - type: media-control
+        entity: media_player.philips_androidtv

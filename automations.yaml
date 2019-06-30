@@ -65,7 +65,7 @@
   condition: []
   action:
   - data: {}
-    service: script.1545863420408
+    service: script.start_radio_in_bedroom
 
 - alias: 'Wakeup lights'
   trigger:

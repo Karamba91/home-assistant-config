@@ -1,5 +1,5 @@
-'1545863420408':
-  alias: Radio on Living room speaker
+'start_radio_in_bedroom':
+  alias: Stream P3 in bedroom
   sequence:
   - data:
       entity_id: media_player.bedroom_speaker
