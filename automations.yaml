@@ -102,6 +102,19 @@
   trigger:
     - platform: state
       entity_id: 'sensor.xiaomi_button'
-      to: 'single'
+      to: 'double'
   action:
       service: light.toggle
+
+- alias: Turn off wakeup
+  trigger:
+    - platform: state
+      entity_id: 'sensor.xiaomi_button'
+      to: 'single'
+  action:
+    - service: media_player.turn_off
+      data:
+         entity_id: 'media_player.bedroom_speaker'
+    - service: light.turn_off
+      data:
+         entity_id: light.wakeup
