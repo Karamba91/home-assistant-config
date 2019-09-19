@@ -76,7 +76,7 @@ tts:
     service_name: google_say
 
 # group: !include groups.yaml
-automation: !include automations.yaml
+automation: !include_dir_merge_list automation
 script: !include scripts.yaml
 
 google_assistant:
