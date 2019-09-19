@@ -1,0 +1,10 @@
+- alias: 'Turn on living room lights'
+  trigger:
+    - platform: state
+      entity_id: sensor.philips_hue_switch
+      to: 'on-press'
+  action:
+      - service: light.turn_on
+        data:
+          entity_id: light.living_room
+          
