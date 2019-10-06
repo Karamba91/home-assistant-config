@@ -93,7 +93,7 @@ media_player:
     client_id: !secret spotify_client_id
     client_secret: !secret spotify_client_secret
   - platform: androidtv
-    host: 192.168.8.179
+    host: 192.168.0.105
     name: Philips_androidtv
     adb_server_ip: 127.0.0.1
     device_class: androidtv
@@ -114,5 +114,3 @@ light:
 system_health:
 
 scene: !include scenes.yaml
-
-
