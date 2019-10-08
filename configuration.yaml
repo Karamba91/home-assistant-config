@@ -1,64 +1,40 @@
-homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Eriks place
-  # Location required to calculate the time the sun rises and sets
-  latitude: !secret my_latitude
-  longitude: !secret my_longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: !secret my_altitude
-  # metric for Metric, imperial for Imperial
-  unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: Europe/Stockholm
-  # Customization file
-  customize: !include customize.yaml
 
-# Enables the frontend
-frontend:
-
-lovelace:
-  mode: yaml
-
-# Enables configuration UI
-config:
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
 
 http:
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: !secret base_url_input
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
   ip_ban_enabled: true
   login_attempts_threshold: 5
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  include_used_components: true
+# Text to speech
+tts:
+  - platform: google_translate
 
-# Enables support for tracking state changes over time
-history:
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
 
-# View all events in a logbook
-logbook:
+google_assistant:
+  project_id: home-assistant-94b3b
+  api_key: !secret google_api_key 
+  exposed_domains:
+          - light
+          - script
 
-# Enables a map showing the location of tracked devices
-map:
+lovelace:
+  mode: yaml
 
-# Track the sun
-sun:
-
-# Sensors, should be moved to separate file
 sensor:
-  - platform: vasttrafik
-    key: !secret vasttrafik_key
-    secret: !secret vasttrafik_secret
-    departures:
-      - from: Bergsprängaregatan
-        heading : Brunnsparken
+#  - platform: vasttrafik
+#    key: !secret vasttrafik_key
+#    secret: !secret vasttrafik_secret
+#    departures:
+#      - from:
+#        heading :
   - platform: time_date
     display_options:
             - 'time'
@@ -70,47 +46,12 @@ sensor:
     icon: mdi:alarm
     qos: 1
 
-# Text to speech
-tts:
-  - platform: google_translate
-    service_name: google_say
-
-# group: !include groups.yaml
-automation: !include_dir_merge_list automation
-script: !include scripts.yaml
-
-google_assistant:
-  project_id: home-assistant-94b3b
-  api_key: !secret google_api_key 
-  exposed_domains:
-          - light
-          - script
-
-hassio:
-
 media_player:
   - platform: spotify
     client_id: !secret spotify_client_id
     client_secret: !secret spotify_client_secret
   - platform: androidtv
     host: 192.168.0.105
-    name: Philips_androidtv
+    name: philips_androidtv
     adb_server_ip: 127.0.0.1
     device_class: androidtv
-
-light:
-  - platform: template
-    lights:
-      switch_light:
-        friendly_name: "Switch light"
-        value_template: '{{ states.switch.tradfri_control_outlet.state }}'
-        turn_on:
-          service: switch.turn_on
-          entity_id: switch.tradfri_control_outlet
-        turn_off:
-          service: switch.turn_off
-          entity_id: switch.tradfri_control_outlet
-
-system_health:
-
-scene: !include scenes.yaml
