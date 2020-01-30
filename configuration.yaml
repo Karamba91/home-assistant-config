@@ -14,9 +14,10 @@ tts:
   - platform: google_translate
 
 group: !include groups.yaml
-automation: !include automations.yaml
+automation: !include_dir_merge_list automation/
 script: !include scripts.yaml
 scene: !include scenes.yaml
+light: !include lights.yaml
 
 google_assistant:
   project_id: home-assistant-94b3b
@@ -29,12 +30,12 @@ lovelace:
   mode: yaml
 
 sensor:
-#  - platform: vasttrafik
-#    key: !secret vasttrafik_key
-#    secret: !secret vasttrafik_secret
-#    departures:
-#      - from:
-#        heading :
+  - platform: vasttrafik
+    key: !secret vasttrafik_key
+    secret: !secret vasttrafik_secret
+    departures:
+      - from: "Kungälvs resecentrum väst"
+        heading : "Volvo Torslanda PV"
   - platform: time_date
     display_options:
             - 'time'
@@ -55,3 +56,4 @@ media_player:
     name: philips_androidtv
     adb_server_ip: 127.0.0.1
     device_class: androidtv
+

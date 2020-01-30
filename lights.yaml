@@ -1,0 +1,23 @@
+- platform: group
+  name: Living room lights
+  entities:
+    - light.living_room_window_right
+    - light.living_room_window_left
+
+- platform: group
+  name: Entrance lights
+  entities:
+    - light.entrance_1
+    - light.entrance_2
+    - light.entrance_3
+
+- platform: group
+  name: Extra room lights
+  entities:
+    - light.dresser
+
+- platform: group
+  name: Bedroom lights
+  entities:
+    - light.bedroom_roof
+    - light.bedroom_window

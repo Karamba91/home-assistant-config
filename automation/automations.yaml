@@ -8,9 +8,10 @@
   - data:
       brightness_pct: '30'
       entity_id:
-      - light.hallway_light
-      - light.living_room_window
-      - light.switch_light
+        - light.living_room_lights
+        - light.office_lights
+        - light.extra_room_lights
+        - light.office_window
     service: light.turn_on
 
 - alias: Auto turn off lights
@@ -25,10 +26,11 @@
   - alias: ''
     data:
       entity_id:
-      - light.living_room_window
-      - light.hallway_light
-      - light.bedroom_window_1
-      - light.bedroom_window_2
+      - light.entrance_lights
+      - light.living_room_lights
+      - light.office_window
+      - light.extra_room_lights
+      - light.bedroom_light
     service: light.turn_off
   - data:
       entity_id: light.switch_light
@@ -49,13 +51,11 @@
   action:
   - data:
       brightness_pct: '30'
-      entity_id: light.hallway_light
-      transition: '20'
-    service: light.turn_on
-  - data:
-      brightness_pct: '30'
-      entity_id: light.living_room_window
-      transition: '20'
+      entity_id:
+        - light.living_room_lights
+        - light.office_lights
+        - light.extra_room_lights
+        - light.office_window
     service: light.turn_on
 
 - alias: Trigger radio
