@@ -38,7 +38,7 @@
 
 - alias: 'Lights in the morning'
   trigger:
-  - at: 06:00
+  - at: 05:30
     platform: time
   condition:
   - condition: time
@@ -67,7 +67,7 @@
   - data: {}
     service: script.start_radio_in_bedroom
 
-- alias: 'Wakeup lights'
+- alias: Wakeup lights
   trigger:
     platform: template
     value_template: "{{ ((as_timestamp(strptime(states('sensor.phone_alarm_time'), '%Y-%m-%d %H:%M')) - 20*60) | timestamp_custom('%Y-%m-%d, %H:%M')) == strptime(states('sensor.date_time'), '%Y-%m-%d %H:%M') }}"
@@ -98,48 +98,4 @@
       service: scene.turn_on
       entity_id: scene.livingroom_dim
 
-- alias: Button toggle lights
-  trigger:
-    - platform: state
-      entity_id: 'sensor.xiaomi_button'
-      to: 'double'
-  action:
-      service: light.toggle
 
-- alias: Turn off wakeup
-  trigger:
-    - platform: state
-      entity_id: 'sensor.xiaomi_button'
-      to: 'single'
-  action:
-    - service: media_player.turn_off
-      data:
-         entity_id: 'media_player.bedroom_speaker'
-    - service: light.turn_off
-      data:
-         entity_id: light.wakeup
-
-- alias: 'Turn on living room lights with remote'
-  trigger:
-    - platform: state
-      entity_id: sensor.philips_hue_switch
-      to: 'on-press'
-  action:
-      - service: light.turn_on
-        data:
-          entity_id:
-            - light.living_room_window
-            - light.hallway_light
-
-- alias: 'Turn off living room lights with remote'
-  trigger:
-    - platform: state
-      entity_id: sensor.philips_hue_switch
-      to: 'off-press'
-  action:
-      - service: light.turn_off
-        data:
-          entity_id:
-            - light.living_room_window
-            - light.hallway_light
- 

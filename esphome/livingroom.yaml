@@ -4,34 +4,26 @@ esphome:
   board: nodemcuv2
 
 wifi:
-  ssid: '4G-Gateway-A939_2GEXT'
-  password: 'HN4992N8NTA'
+  ssid: COMHEM_89CF62
+  password: qk2e9pep
+  
+  manual_ip:
+    static_ip: 192.168.0.88
+    gateway: 192.168.0.1
+    subnet: 255.255.255.0
+
+
+#  # Enable fallback hotspot (captive portal) in case wifi connection fails
+#  ap:
+#    ssid: "Livingroom Fallback Hotspot"
+#    password: "DwXTPPWRCiHm"
+
+#captive_portal:
 
 # Enable logging
 logger:
 
 # Enable Home Assistant API
-api:
+#api:
 
 ota:
-
-i2c:
-  sda: D1
-  scl: D2
-  scan: True
-
-switch:
-  - platform: gpio
-    name: "Living Room Dehumidifier"
-    pin: D4
-
-sensor:
-  - platform: bmp085
-    temperature:
-      name: "Indoor temperature"
-    pressure:
-      name: "Indoor pressure"
-    update_interval: 60s
-  - platform: tcs34725
-    illuminance:
-      name: "Illuminance"

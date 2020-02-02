@@ -21,31 +21,45 @@ views:
         hours_to_show: 48
 
         # Lights
-      - type: vertical-stack
-        cards:
-          - type: markdown
-            title: "Lights"
-            content: " "
-          - type: horizontal-stack
-            cards:
-              - type: light
-                entity: light.living_room_lights
-              - type: light
-                entity: light.entrance_lights
-          - type: horizontal-stack
-            cards:
-              - type: light
-                entity: light.office_window
-              - type: light
-                entity: light.extra_room_lights
-          - type: horizontal-stack
-            cards:
-              - type: light
-                entity: light.bedroom_lights
+      - type: glance
+        title: Lights
+        entities:
+           - light.living_room_lights
+           - light.entrance_lights
+           - light.office_window
+           - light.extra_room_lights
+           - light.bedroom_lights
+        tap_action: toggle
+        #      - type: vertical-stack
+        #        cards:
+        #          - type: markdown
+        #            title: "Lights"
+        #            content: " "
+        #          - type: horizontal-stack
+        #            cards:
+        #              - type: light
+        #                entity: light.living_room_lights
+        #              - type: light
+        #                entity: light.entrance_lights
+        #          - type: horizontal-stack
+        #            cards:
+        #              - type: light
+        #                entity: light.office_window
+        #              - type: light
+        #                entity: light.extra_room_lights
+        #          - type: horizontal-stack
+        #            cards:
+        #              - type: light
+        #                entity: light.bedroom_lights
  
         # Spotify
       - type: media-control
         entity: media_player.spotify
+      - type: glance
+        name: Travelling time
+        entities:
+          - sensor.to_work
+          - sensor.to_goteborg
  # Automations
   - title: Automation control
     cards:
