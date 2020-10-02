@@ -9,8 +9,8 @@
       brightness_pct: '30'
       entity_id:
         - light.living_room_lights
-        - light.office_lights
-        - light.extra_room_lights
+        - light.bedroom_window
+        - light.extra_bedroom_window
         - light.office_window
     service: light.turn_on
 
@@ -26,11 +26,11 @@
   - alias: ''
     data:
       entity_id:
-      - light.entrance_lights
-      - light.living_room_lights
-      - light.office_window
-      - light.extra_room_lights
-      - light.bedroom_light
+        - light.entrance_lights
+        - light.living_room_lights
+        - light.office_window
+        - light.extra_bedroom_lights
+        - light.bedroom_lights
     service: light.turn_off
   - data:
       entity_id: light.switch_light
@@ -54,7 +54,7 @@
       entity_id:
         - light.living_room_lights
         - light.office_lights
-        - light.extra_room_lights
+        - light.extra_bedroom_lights
         - light.office_window
     service: light.turn_on
 

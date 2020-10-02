@@ -4,17 +4,14 @@ views:
   - title: Start
     cards:
       # Sensors
-      - type: markdown
-        title: "Sensors"
-        content: " "
       - type: sensor
-        entity: sensor.indoor_temperature
+        entity: sensor.temperature
         graph: line
         unit: °C
         detail: 1
         hours_to_show: 48
       - type: sensor
-        entity: sensor.indoor_pressure
+        entity: sensor.pressure
         graph: line
         unit: hPa
         detail: 1
@@ -26,8 +23,7 @@ views:
         entities:
            - light.living_room_lights
            - light.entrance_lights
-           - light.office_window
-           - light.extra_room_lights
+           - light.extra_bedroom_lights
            - light.bedroom_lights
         tap_action: toggle
         #      - type: vertical-stack
@@ -54,13 +50,13 @@ views:
  
         # Spotify
       - type: media-control
-        entity: media_player.spotify
+        entity: media_player.spotify_erik_henriksson
       - type: glance
         name: Travelling time
         entities:
           - sensor.to_work
           - sensor.to_goteborg
- # Automations
+# Automations
   - title: Automation control
     cards:
       - type: entity-filter
@@ -76,7 +72,36 @@ views:
         state_filter:
            - "on"
            - "off"
-  # Lights
+# Vacuum
+  - title: Vacuum
+    cards:
+      - type: custom:vacuum-card
+        entity: vacuum.xiaomi_vacuum_cleaner
+        stats:
+          default:
+            - attribute: filter_left
+              unit: hours
+              subtitle: Filter
+            - attribute: side_brush_left
+              unit: hours
+              subtitle: Side brush
+            - attribute: main_brush_left
+              unit: hours
+              subtitle: Main brush
+            - attribute: sensor_dirty_left
+              unit: hours
+              subtitle: Sensors
+          cleaning:
+            - attribute: cleaned_area
+              unit: m2
+              subtitle: Cleaning area
+            - attribute: cleaning_time
+              unit: minutes
+              subtitle: Cleaning time
+ 
+
+
+# Lights
   - title: Lights
     cards:
       - type: vertical-stack
@@ -90,13 +115,33 @@ views:
            - type: horizontal-stack
              cards:
                 - type: light
-                  entity: light.dresser
+                  entity: light.extra_bedroom_window
                 - type: light
-                  entity: light.office_window
+                  entity: light.dresser
            - type: horizontal-stack
              cards:
                 - type: light
                   entity: light.bedroom_roof
                 - type: light
                   entity: light.bedroom_window
-
+           - type: horizontal-stack
+             cards:
+                - type: light
+                  entity: light.entrance_lights
+  # Plex
+  - title: Media
+    cards: 
+      - type: media-control
+        entity: media_player.plex_erik_mobile
+      - type: media-control
+        entity: media_player.bedroom_tv
+      - type: media-control
+        entity: media_player.living_room_tv
+      - type: media-control
+        entity: media_player.living_room_speaker
+      - type: media-control
+        entity: media_player.bedroom_speaker
+      - type: media-control
+        entity: media_player.office_speaker
+      - type: media-control
+        entity: media_player.philips_androidtv

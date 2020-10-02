@@ -1,3 +1,7 @@
+- platform: switch
+  name: Dresser
+  entity_id: switch.ikea_switch
+
 - platform: group
   name: Living room lights
   entities:
@@ -12,8 +16,9 @@
     - light.entrance_3
 
 - platform: group
-  name: Extra room lights
+  name: Extra bedroom lights
   entities:
+    - light.extra_bedroom_window
     - light.dresser
 
 - platform: group
@@ -21,3 +26,4 @@
   entities:
     - light.bedroom_roof
     - light.bedroom_window
+
