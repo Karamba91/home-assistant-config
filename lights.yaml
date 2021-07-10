@@ -1,0 +1,43 @@
+- platform: switch
+  name: Kitchen bench left
+  entity_id: switch.sonoff_kitchen_1
+
+- platform: switch
+  name: Kitchen bench right
+  entity_id: switch.sonoff_kitchen_2
+
+- platform: group
+  name: Living room lights
+  entities:
+    - light.living_room_window_right
+    - light.living_room_window_left
+
+- platform: group
+  name: Entrance lights
+  entities:
+    - light.entrance_1
+    - light.entrance_2
+    - light.entrance_3
+
+- platform: group
+  name: Extra bedroom lights
+  entities:
+    - light.advent_star
+ 
+- platform: group
+  name: Office lights
+  entities:
+    - light.office_window
+    - light.shelly_dimmer_office
+
+- platform: group
+  name: Bedroom lights
+  entities:
+    - light.bedroom_roof
+    - light.bedroom_window
+
+- platform: group
+  name: Kitchen bench lights
+  entities:
+    - light.kitchen_bench_left
+    - light.kitchen_bench_right

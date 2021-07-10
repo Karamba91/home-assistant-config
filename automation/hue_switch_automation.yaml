@@ -1,0 +1,61 @@
+- alias: Turn on living room lights
+  trigger:
+    - platform: state
+      entity_id: sensor.philips_hue_remote
+      to: 'on-press'
+  action:
+      - service: light.turn_on
+        data:
+          entity_id: light.living_room_lights
+
+- alias: Turn off living room lights
+  trigger:
+    - platform: state
+      entity_id: sensor.philips_hue_remote
+      to: 'off-press'
+  action:
+      - service: light.turn_off
+        data:
+          entity_id: light.living_room_lights
+
+- alias: Light up living room lights
+  trigger:
+    - platform: state
+      entity_id: sensor.philips_hue_remote
+      to: 'up-press'
+  condition:
+    - condition: state
+      entity_id: light.living_room_lights
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.living_room_lights
+        brightness: >
+                {% if states.light.living_room_lights.state == 'on' %}
+                     {{ states.light.living_room_lights.attributes.brightness + 25 }} 
+                {% else %}
+                     0
+                {% endif %}
+
+- alias: Dim down living room lights
+  trigger:
+    - platform: state
+      entity_id: sensor.philips_hue_remote
+      to: 'down-press'
+  action:
+     - service: light.turn_on
+       data_template:
+           entity_id: light.living_room_lights
+           brightness: 10
+                   #                    {% set current_light =  state_attr( "light.living_room_lights", "brightness") | default(0) | int %}
+                   #                    {% if (states.light.living_room_lights.state == 'on') %}
+                   #                         {% if current_light > 25) %}
+                   #                             {{ states.light.living_room_lights.attributes.brightness - 25 }}
+                   #                         {% else %}
+                   #                             0
+                   #                         {% endif %}
+                   #                    {% else %}
+                   #                         0
+                   #                    {% endif %}
+                   #  

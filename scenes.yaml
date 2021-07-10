@@ -1,0 +1,22 @@
+- name: Wakeup
+  icon: 'mdi:alarm'
+  entities:
+     light.bedside_right:
+        state: on
+        brightness_pct: 100
+
+- name: Occupied entrance
+  icon: 'mdi:door'
+  entities:
+     light.entrance_lights:
+        state: "on"
+        transition: 2
+        brightness_pct: 50
+
+- name: Empty entrance
+  icon: 'mdi:door'
+  entities:
+     light.entrance_lights:
+        state: "off"
+        transition: 5
+

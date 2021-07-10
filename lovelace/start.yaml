@@ -1,0 +1,56 @@
+title: Start
+path: start
+panel: false
+badges:
+  - entity: person.erik
+  - entity: person.elin
+cards:
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.updater
+        state: 'on'
+    card:
+      type: entity
+      entity: binary_sensor.updater
+      name: 'New release available:'
+      attribute: newest_version
+  - type: glance
+    entities:
+      - entity: sensor.cert_expiry_timestamp_hass_erikhenriksson_duckdns_org
+    title: 'Certificate expires in: '
+    show_state: true
+    show_icon: false
+    show_name: false
+  - type: vertical-stack
+    cards: !include conditional_media_players.yaml
+  - type: weather-forecast
+    entity: weather.hem
+  - type: glance
+    title: Office
+    entities:
+      - sensor.temperature_office
+      - sensor.pressure
+      - entity: light.office_lights
+        tap_action:
+          action: toggle
+  - type: custom:vacuum-card
+    entity: vacuum.xiaomi_vacuum_cleaner
+    stats:
+       defaults:
+          - attribute: filter_left
+            unit: hours
+            subtitle: Filter
+          - attribute: side_brush_left
+            unit: hours
+            subtitle: Side brush
+          - attribute: main_brush_left
+            unit: hours
+            subtitle: Main brush
+       cleaning:
+          - attribute: cleaned_area
+            unit: m2
+            subtitle: Cleaning area
+          - attribute: cleaning_time
+            unit: minutes
+            subtitle: Cleaning time
+            

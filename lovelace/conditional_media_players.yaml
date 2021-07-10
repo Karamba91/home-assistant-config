@@ -1,0 +1,61 @@
+- type: conditional
+  conditions:
+    - entity: media_player.office_speaker
+      state_not: "off"
+    - entity: media_player.home_speakers
+      state: "off"
+  card:
+    type: custom:mini-media-player
+    entity: media_player.office_speaker
+    artwork: cover
+    show_progress: true
+- type: conditional
+  conditions:
+    - entity: media_player.living_room_speaker
+      state_not: "off"
+    - entity: media_player.home_speakers
+      state: "off"
+  card:
+    type: custom:mini-media-player
+    entity: media_player.living_room_speaker
+    artwork: cover
+    show_progress: true
+- type: conditional
+  conditions:
+    - entity: media_player.bedroom_speaker
+      state_not: "off"
+    - entity: media_player.home_speakers
+      state: "off"
+  card:
+    type: custom:mini-media-player
+    entity: media_player.bedroom_speaker
+    artwork: cover
+    show_progress: true
+- type: conditional
+  conditions:
+    - entity: media_player.home_speakers
+      state_not: "off"
+  card:
+    type: custom:mini-media-player
+    entity: media_player.home_speakers
+    artwork: cover
+    show_progress: true
+- type: conditional
+  conditions:
+    - entity: media_player.philips_android_tv
+      state_not: "off"
+  card:
+    type: custom:mini-media-player
+    entity: media_player.philips_android_tv
+    artwork: cover
+    show_progress: true
+- type: conditional
+  conditions:
+    - entity: media_player.bedroom_android_tv
+      state_not: "off"
+  card:
+    type: custom:mini-media-player
+    entity: media_player.bedroom_android_tv
+    artwork: cover
+    show_progress: true
+

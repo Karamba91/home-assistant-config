@@ -1,0 +1,12 @@
+*
+!*.yaml
+!*.py
+!*/
+!/esphome/**
+!.gitignore
+*.conf
+*.txt
+*.log
+secrets.yaml
+ip_bans.yaml
+/custom_components/**

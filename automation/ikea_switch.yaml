@@ -1,0 +1,20 @@
+- alias: Turn on kitchen bench light
+  trigger:
+    - platform: state
+      entity_id: sensor.ikea_switch_button
+      to: 'on'
+  action:
+      - service: light.turn_on
+        data:
+                entity_id: light.kitchen_bench_lights
+
+- alias: Turn off kitchen bench light
+  trigger:
+    - platform: state
+      entity_id: sensor.ikea_switch_button
+      to: 'off'
+  action:
+      - service: light.turn_off
+        data:
+                entity_id: light.kitchen_bench_lights
+

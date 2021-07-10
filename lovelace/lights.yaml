@@ -1,0 +1,35 @@
+title: Lights
+cards:
+  - type: vertical-stack
+    cards:
+       - type: horizontal-stack
+         cards:
+            - type: light
+              entity: light.living_room_window_left
+            - type: light
+              entity: light.living_room_window_right
+       - type: horizontal-stack
+         cards:
+            - type: light
+              entity: light.office_window
+            - type: light
+              entity: light.entrance_lights
+       - type: horizontal-stack
+         cards:
+            - type: light
+              entity: light.bedroom_roof
+            - type: light
+              entity: light.bedroom_window
+       - type: horizontal-stack
+         cards:
+            - type: light
+              entity: light.bedside_right
+  - type: vertical-stack
+    cards:
+       - type: horizontal-stack
+         cards:
+            - type: light
+              entity: light.kitchen_table
+            - type: light
+              entity: light.shelly_dimmer_office
+

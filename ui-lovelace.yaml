@@ -1,0 +1,5 @@
+views:
+    - !include lovelace/start.yaml
+    - !include lovelace/floorplan.yaml
+    - !include lovelace/lights.yaml
+    - !include lovelace/zigbee2mqtt.yaml

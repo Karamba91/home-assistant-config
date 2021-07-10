@@ -1,0 +1,60 @@
+all_lights_out:
+  alias: All lights out
+  mode: single
+  sequence:
+    - data: {}
+      entity_id: group.lights_all
+      service: homeassistant.turn_off
+  icon: mdi:lightbulb-multiple-off
+
+# VACUUM ZONE CLEANING
+
+vacuum_clean_extra_bedroom:
+  alias: "Vacuum Clean Extra Bedroom"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: 16
+
+vacuum_clean_living_room:
+  alias: "Vacuum Clean Living Room"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: 17
+
+vacuum_clean_office:
+  alias: "Vacuum Clean Office"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: 1
+
+vacuum_clean_entrance:
+  alias: "Vacuum Clean Entrance"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: 3
+
+vacuum_clean_bedroom:
+  alias: "Vacuum Clean Bedroom"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: 4
+
+vacuum_empty_dust_bin:
+  alias: "Vacuum empty dust bin"
+  sequence:
+    - service: xiaomi_miio.vacuum_goto
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        x_coord: 26000
+        y_coord: 26000
+
