@@ -4,6 +4,13 @@ panel: false
 badges:
   - entity: person.erik
   - entity: person.elin
+  - entity: binary_sensor.entry_door_contact
+    name: Entry door
+    type: state-label
+  - entity: binary_sensor.balcony_door_contact
+    name: Balcony door
+    type: state-label
+
 cards:
   - type: conditional
     conditions:

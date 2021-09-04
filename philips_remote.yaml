@@ -1,0 +1,32 @@
+philips_pause:
+  alias: "Pause Philips android TV"
+  sequence:
+    - service: androidtv.adb_command
+      target:
+        entity_id: media_player.philips_android_tv
+      data:
+        command: "sendevent /dev/input/event1 24 2 0 &&
+                 sendevent /dev/input/event1 1 201 1 &&
+                 sendevent /dev/input/event1 0 0 0 &&
+                 sendevent /dev/input/event1 24 2 0 &&
+                 sendevent /dev/input/event1 1 201 0 &&
+                 sendevent /dev/input/event1 0 0 0"
+
+philips_play:
+  alias: "Play Philips android TV"
+  sequence:
+    - service: androidtv.adb_command
+      target:
+        entity_id: media_player.philips_android_tv
+      data:
+        command: "sendevent /dev/input/event1 24 2 0 &&
+                 sendevent /dev/input/event1 1 201 1 &&
+                 sendevent /dev/input/event1 0 0 0 &&
+                 sendevent /dev/input/event1 24 2 0 &&
+                 sendevent /dev/input/event1 1 201 0 &&
+                 sendevent /dev/input/event1 0 0 0"
+
+philips_power:
+  alias: "Toggle power Philips android tv"
+  sequence:
+    - service: 

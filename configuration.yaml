@@ -64,10 +64,10 @@ vacuum:
      token: !secret vacuum_token
 
 media_player:
-  - platform: androidtv
-    name: Philips android TV
-    host: !secret philips_tv_ip
-    screencap: false
+#  - platform: androidtv
+#    name: Philips android TV
+#    host: !secret philips_tv_ip
+#    screencap: false
   - platform: androidtv
     name: Bedroom android TV
     host: !secret bedroom_tv_ip

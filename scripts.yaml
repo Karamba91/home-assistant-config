@@ -1,3 +1,28 @@
+#!include philips_remote.yaml
+philips_pause:
+  alias: "Pause Philips android TV"
+  sequence:
+    - service: androidtv.adb_command
+      target:
+        entity_id: media_player.philips_android_tv
+      data:
+        command: "sendevent /dev/input/event1 24 2 0 &&
+                 sendevent /dev/input/event1 1 201 1 &&
+                 sendevent /dev/input/event1 0 0 0 &&
+                 sendevent /dev/input/event1 24 2 0 &&
+                 sendevent /dev/input/event1 1 201 0 &&
+                 sendevent /dev/input/event1 0 0 0"
+
+philips_play:
+  alias: "Play Philips android TV"
+  sequence:
+    - service: androidtv.adb_command
+      target:
+        entity_id: media_player.philips_android_tv
+      data:
+        command: ""
+
+
 all_lights_out:
   alias: All lights out
   mode: single
@@ -7,7 +32,7 @@ all_lights_out:
       service: homeassistant.turn_off
   icon: mdi:lightbulb-multiple-off
 
-# VACUUM ZONE CLEANING
+# VACUUM ZONE CLEANINGS
 
 vacuum_clean_extra_bedroom:
   alias: "Vacuum Clean Extra Bedroom"
