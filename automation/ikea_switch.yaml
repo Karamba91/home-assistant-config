@@ -18,3 +18,13 @@
         data:
                 entity_id: light.kitchen_bench_lights
 
+- alias: Turn on lights entrance
+  trigger:
+    - platform: state
+      entity_id: sensor.ikea_remote_action
+      to: 'toggle'
+  action:
+    - service: light.toggle
+      data:
+        entity_id: light.entrance_lights
+  

@@ -24,6 +24,9 @@ cards:
          cards:
             - type: light
               entity: light.bedside_right
+            - type: light
+              entity: light.advent_star
+ 
   - type: vertical-stack
     cards:
        - type: horizontal-stack
@@ -38,4 +41,14 @@ cards:
               entity: light.kitchen_bench_lights
             - type: light
               entity: light.kitchen_drink
+       - type: horizontal-stack
+         cards:
+            - type: light
+              entity: light.living_room_advent
+            - type: light
+              entity: light.office_advent
+       - type: horizontal-stack
+         cards:
+            - type: light
+              entity: light.bedroom_advent
 

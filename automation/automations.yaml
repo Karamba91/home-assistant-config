@@ -46,7 +46,8 @@
       entity_id:
         - light.living_room_lights
         - light.extra_bedroom_lights
-        - light.office_window
+        - light.office_lights
+        - light.extra_bedroom_lights
     service: light.turn_on
 
 - alias: Trigger radio
@@ -108,6 +109,5 @@
       service: scene.turn_on
       target:
          entity_id: scene.empty_entrance
-
 
 

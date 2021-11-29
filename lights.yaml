@@ -15,6 +15,7 @@
   entities:
     - light.living_room_window_right
     - light.living_room_window_left
+    - light.living_room_advent
 
 - platform: group
   name: Entrance lights
@@ -24,24 +25,40 @@
     - light.entrance_3
 
 - platform: group
-  name: Extra bedroom lights
-  entities:
-    - light.advent_star
- 
-- platform: group
   name: Office lights
   entities:
     - light.office_window
-    - light.shelly_dimmer_office
+    - light.office_advent
 
 - platform: group
   name: Bedroom lights
   entities:
     - light.bedroom_roof
     - light.bedroom_window
+    - light.bedroom_advent
 
 - platform: group
   name: Kitchen bench lights
   entities:
     - light.kitchen_bench_left
     - light.kitchen_bench_right
+
+- platform: group
+  name: Extra bedroom lights
+  entities:
+    - light.advent_star
+ 
+################ Christmas ##################
+- platform: switch
+  name: Living room advent
+  entity_id: switch.living_room_switch
+
+- platform: switch
+  name: Office advent
+  entity_id: switch.office_switch
+
+- platform: switch
+  name: Bedroom advent
+  entity_id: switch.bedroom_switch
+
+
