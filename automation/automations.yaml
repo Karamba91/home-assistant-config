@@ -24,7 +24,7 @@
         - light.living_room_lights
         - light.bedroom_window
         - light.extra_bedroom_lights
-        - light.office_window
+        - light.office_lights
         - light.bedroom_advent
     service: light.turn_on
 
