@@ -27,11 +27,13 @@ person:
     user_id: !secret erik_user_id
     device_trackers:
       - device_tracker.eriks_phone
+      - device_tracker.eriks_galaxy_s9
   - name: Elin
     id: elin
     user_id: !secret elin_user_id
     device_trackers:
       - device_tracker.elins_iphone
+      - device_tracker.elins_iphone_wifi
 
 # Text to speech
 tts:
@@ -43,7 +45,7 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 light: !include lights.yaml
 zone: !include zones.yaml
-sensor: !include mqtt_sensor.yaml
+sensor: !include sensor.yaml
 
 google_assistant:
    project_id: !secret google_assistant_project_id
