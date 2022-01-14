@@ -98,6 +98,13 @@ cards:
         style:
             top: 97.9%
             left: 74.5%
+      - type: state-icon
+        tap_action:
+            action: toggle
+        entity: light.shelly_dimmer_office
+        style:
+            top: 84%
+            left: 74.2%
         # Entrance
       - type: state-icon
         tap_action:
@@ -119,4 +126,16 @@ cards:
         style:
             top: 27.5%
             left: 47%
-
+      ##### Doors and windows ######
+      - type: state-icon
+        entity: binary_sensor.entry_door_contact
+        icon: mdi:door
+        style:
+            top: 59%
+            left: 83.5%
+      - type: state-icon
+        entity: binary_sensor.balcony_door_contact
+        icon: mdi:door
+        style:
+            top: 83%
+            left: 16.5%
