@@ -43,7 +43,7 @@ cards:
   
   - type: "custom:vacuum-card"
     entity: vacuum.xiaomi_vacuum_cleaner
-    image: default
+    map: camera.xiaomi_cloud_map_extractor
     compact_view: false
     show_name: true
     show_toolbar: true

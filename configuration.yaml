@@ -79,6 +79,22 @@ camera:
   - platform: local_file
     file_path: !secret file_path
 
+  - platform: xiaomi_cloud_map_extractor
+    host: !secret vacuum_ip
+    token: !secret vacuum_token
+    username: !secret xiaomi_username
+    password: !secret xiaomi_password
+    draw: [all]
+    attributes:
+      - calibration_points
+    map_transformation:
+      scale: 1.5
+      trim:
+        top: 20
+        right: 20
+        left: 20
+        bottom: 20
+
 sonoff:
     username: !secret sonoff_username
     password: !secret sonoff_password
