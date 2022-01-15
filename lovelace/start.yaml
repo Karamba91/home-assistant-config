@@ -69,4 +69,11 @@ cards:
         - entity_id: sensor.vacuum_last_clean_duration
           unit: min
           subtitle: Last clean duration
+    shortcuts:
+    - name: Empty vacuum
+      service: script.vacuum_empty_dust_bin
+      icon: mdi:trash-can
+    - name: Clean living room
+      service: script.vacuum_clean_living_room
+      icon: mdi:silverware
            

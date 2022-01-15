@@ -80,6 +80,6 @@ vacuum_empty_dust_bin:
     - service: xiaomi_miio.vacuum_goto
       data:
         entity_id: vacuum.xiaomi_vacuum_cleaner
-        x_coord: 26000
-        y_coord: 26000
+        x_coord: '25500'
+        y_coord: '20400'
 
