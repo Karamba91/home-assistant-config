@@ -16,6 +16,7 @@
     - light.living_room_window_right
     - light.living_room_window_left
     - light.living_room_advent
+    - light.kitchen_drink
 
 - platform: group
   name: Entrance lights
