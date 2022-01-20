@@ -48,7 +48,7 @@ vacuum_clean_living_room:
     - service: xiaomi_miio.vacuum_clean_segment
       data:
         entity_id: vacuum.xiaomi_vacuum_cleaner
-        segments: 17
+        segments: 21
 
 vacuum_clean_office:
   alias: "Vacuum Clean Office"
@@ -56,7 +56,7 @@ vacuum_clean_office:
     - service: xiaomi_miio.vacuum_clean_segment
       data:
         entity_id: vacuum.xiaomi_vacuum_cleaner
-        segments: 1
+        segments: 19
 
 vacuum_clean_entrance:
   alias: "Vacuum Clean Entrance"
@@ -64,7 +64,7 @@ vacuum_clean_entrance:
     - service: xiaomi_miio.vacuum_clean_segment
       data:
         entity_id: vacuum.xiaomi_vacuum_cleaner
-        segments: 3
+        segments: 17
 
 vacuum_clean_bedroom:
   alias: "Vacuum Clean Bedroom"
@@ -73,6 +73,33 @@ vacuum_clean_bedroom:
       data:
         entity_id: vacuum.xiaomi_vacuum_cleaner
         segments: 4
+
+vacuum_clean_kitchen:
+  alias: "Vacuum Clean Kitchen"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: 18
+
+vacuum_clean_hallway:
+  alias: "Vacuum Clean Hallway"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: 22
+
+
+vacuum_clean_storage:
+  alias: "Vacuum Clean Storage"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: 20
+
+
 
 vacuum_empty_dust_bin:
   alias: "Vacuum empty dust bin"
