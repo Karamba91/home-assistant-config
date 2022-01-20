@@ -58,6 +58,29 @@
 ################### Wake up automations #########################
 #################################################################
 
+- alias: Update wake up time
+  trigger:
+    - platform: state
+      entity_id: sensor.erik_phone_next_alarm
+  action:
+    - service: input_datetime.set_datetime
+      target:
+        entity_id: input_datetime.wakeup_lights_on
+      data:
+        datetime: "{{ (as_datetime(states('sensor.erik_phone_next_alarm')) - timedelta(minutes=15)) | as_local }}"
+
+- alias: Wakeup lights
+  trigger:
+    - platform: time
+      at: input_datetime.wakeup_lights_on
+  action:
+    - data:
+        brightness_pct: '99'
+        entity_id: light.bedroom_roof
+        transition: '900'
+      service: light.turn_on
+
+
 - alias: Trigger radio
   trigger:
     platform: template
@@ -66,17 +89,6 @@
   action:
   - data: {}
     service: script.start_radio_in_bedroom
-
-- alias: Wakeup lights
-  trigger:
-    platform: template
-    value_template: "{{ ((as_timestamp(strptime(states('sensor.phone_alarm_time'), '%Y-%m-%d %H:%M')) - 20*60) | timestamp_custom('%Y-%m-%d, %H:%M')) == strptime(states('sensor.date_time'), '%Y-%m-%d %H:%M') }}"
-  action:
-  - data:
-      brightness_pct: '99'
-      entity_id: light.wakeup
-      transition: '1200'
-    service: light.turn_on
 
 #################################################################
 ##################### TV automations ############################

@@ -75,6 +75,12 @@ media_player:
     host: !secret bedroom_tv_ip
     screencap: false
 
+input_datetime:
+    wakeup_lights_on:
+      name: Time to turn on lights
+      has_date: true
+      has_time: true
+
 camera:
   - platform: local_file
     file_path: !secret file_path
