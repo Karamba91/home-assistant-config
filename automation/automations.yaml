@@ -31,6 +31,12 @@
         - light.office_lights
         - light.bedroom_advent
     service: light.turn_on
+  - data:
+      brightness_pct: '1'
+      entity_id:
+        - light.office_lights
+    service: light.turn_on
+
 
 - alias: 'Lights in the morning'
   trigger:
@@ -73,6 +79,15 @@
   trigger:
     - platform: time
       at: input_datetime.wakeup_lights_on
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: person.erik
+          state: "home"
+        - condition: time
+          after: "04:00:00"
+          before: "09:00:00"
   action:
     - data:
         brightness_pct: '99'

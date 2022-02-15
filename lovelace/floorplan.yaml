@@ -113,6 +113,19 @@ cards:
         style:
             top: 59%
             left: 75%
+      ###### Climate sensors ######
+      # Office
+      - type: state-label
+        entity: sensor.office_temperature_temperature
+        style:
+            top: 71.5%
+            left: 80.6%
+      - type: state-label
+        entity: sensor.office_temperature_humidity
+        style:
+            top: 72.9%
+            left: 80.6% 
+
       ####### Motion sensors #######
         # Entrance
       - type: state-icon

@@ -32,9 +32,12 @@
     artwork: cover
     show_progress: true
 - type: conditional
+  condtition: or
   conditions:
     - entity: media_player.home_speakers
       state_not: "off"
+    - entity: media_player.home_speakers
+      state_not: "idle"
   card:
     type: custom:mini-media-player
     entity: media_player.home_speakers

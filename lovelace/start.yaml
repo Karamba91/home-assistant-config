@@ -74,6 +74,6 @@ cards:
       service: script.vacuum_empty_dust_bin
       icon: mdi:trash-can
     - name: Clean living room
-      service: script.vacuum_clean_living_room
+      service: script.vacuum_clean_kitchen
       icon: mdi:silverware
            
