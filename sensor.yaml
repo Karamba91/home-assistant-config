@@ -1,21 +1,3 @@
-- platform: mqtt
-  name: "Temperature office"
-  unique_id: office_temperature
-  state_topic: "nodemcu/office_temp"
-  icon: mdi:thermometer
-  unit_of_measurement: "°C"
-  qos: 0
-  expire_after: 610
-
-- platform: mqtt
-  state_topic: "nodemcu/pressure"
-  name: Pressure
-  icon: mdi:gauge
-  unit_of_measurement: "hPa"
-  qos: 0
-  expire_after: 125
-  unique_id: pressure
-
 - platform: template
   sensors:
     vacuum_filter_left_hours:

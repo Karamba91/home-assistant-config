@@ -14,13 +14,20 @@ badges:
 cards:
   - type: conditional
     conditions:
-      - entity: binary_sensor.updater
+      - entity: binary_sensor.docker_hub_update_available
         state: 'on'
     card:
-      type: entity
-      entity: binary_sensor.updater
-      name: 'New release available:'
-      attribute: newest_version
+      type: entities
+      title: Update available
+      entities:
+        - type: section
+          label: Update available
+        - entity: sensor.docker_hub
+          name: 'New release available:'
+        - type: weblink
+          url: https://www.home-assistant.io/blog/categories/release-notes/
+          icon: mdi:home-assistant 
+          name: Release notes
   - type: glance
     entities:
       - entity: sensor.cert_expiry_timestamp_hass_erikhenriksson_duckdns_org
@@ -35,8 +42,8 @@ cards:
   - type: glance
     title: Office
     entities:
-      - sensor.temperature_office
-      - sensor.pressure
+      - sensor.office_temperature_temperature
+      - sensor.office_temperature_humidity
       - entity: light.office_lights
         tap_action:
           action: toggle

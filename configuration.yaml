@@ -26,8 +26,7 @@ person:
     id: erik
     user_id: !secret erik_user_id
     device_trackers:
-      - device_tracker.eriks_phone
-      - device_tracker.eriks_galaxy_s9
+      - device_tracker.erik_phone
   - name: Elin
     id: elin
     user_id: !secret elin_user_id
@@ -46,6 +45,7 @@ scene: !include scenes.yaml
 light: !include lights.yaml
 zone: !include zones.yaml
 sensor: !include sensor.yaml
+#mqtt: !include mqtt.yaml
 
 google_assistant:
    project_id: !secret google_assistant_project_id
@@ -56,9 +56,9 @@ google_assistant:
       - switch
       - light
 
-spotify:
-   client_id: !secret spotify_client_id
-   client_secret: !secret spotify_client_secret
+#spotify:
+#   client_id: !secret spotify_client_id
+#   client_secret: !secret spotify_client_secret
 
 vacuum:
    - platform: xiaomi_miio
