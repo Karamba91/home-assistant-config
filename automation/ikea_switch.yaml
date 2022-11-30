@@ -28,7 +28,7 @@
       data:
         entity_id: light.entrance_lights
   
-- alias: Turn on bedroom night low
+- alias: Turn on extra bedroom light
   trigger:
     - platform: state
       entity_id: sensor.bedroom_switch_night_click
@@ -36,10 +36,10 @@
   action:
     - service: light.turn_on
       data:
-        entity_id: light.bedroom_roof
+        entity_id: light.advent_star
         brightness_pct: 1
 
-- alias: Turn off bedroom night 
+- alias: Turn off extra bedroom light
   trigger:
     - platform: state
       entity_id: sensor.bedroom_switch_night_click
@@ -47,7 +47,7 @@
   action:
     - service: light.turn_off
       data:
-        entity_id: light.bedroom_roof
+        entity_id: light.advent_star
 
 
     
