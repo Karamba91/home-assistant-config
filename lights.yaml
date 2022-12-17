@@ -6,17 +6,12 @@
   name: Kitchen bench right
   entity_id: switch.sonoff_kitchen_2
 
-- platform: switch
-  name: Kitchen drink
-  entity_id: switch.ikea_switch
-
 - platform: group
   name: Living room lights
   entities:
     - light.living_room_window_right
     - light.living_room_window_left
     - light.living_room_advent
-    - light.kitchen_drink
 
 - platform: group
   name: Entrance lights
