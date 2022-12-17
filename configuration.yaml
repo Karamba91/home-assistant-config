@@ -7,7 +7,8 @@ http:
    use_x_forwarded_for: true
    trusted_proxies:
       - !secret trusted_proxy_ip
-
+      - 192.168.1.0/24
+      - 127.0.0.1
 lovelace:
    mode: yaml
    resources:
@@ -59,11 +60,6 @@ google_assistant:
 #spotify:
 #   client_id: !secret spotify_client_id
 #   client_secret: !secret spotify_client_secret
-
-vacuum:
-   - platform: xiaomi_miio
-     host: !secret vacuum_ip
-     token: !secret vacuum_token
 
 input_datetime:
     wakeup_lights_on:
