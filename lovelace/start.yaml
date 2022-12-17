@@ -38,7 +38,7 @@ cards:
   - type: vertical-stack
     cards: !include conditional_media_players.yaml
   - type: weather-forecast
-    entity: weather.hem
+    entity: weather.forecast_home
   - type: glance
     title: Office
     entities:
