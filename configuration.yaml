@@ -45,7 +45,6 @@ scene: !include scenes.yaml
 light: !include lights.yaml
 zone: !include zones.yaml
 sensor: !include sensor.yaml
-#mqtt: !include mqtt.yaml
 
 google_assistant:
    project_id: !secret google_assistant_project_id
@@ -55,10 +54,6 @@ google_assistant:
    exposed_domains:
       - switch
       - light
-
-#spotify:
-#   client_id: !secret spotify_client_id
-#   client_secret: !secret spotify_client_secret
 
 input_datetime:
     wakeup_lights_on:
