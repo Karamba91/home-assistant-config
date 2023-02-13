@@ -7,8 +7,7 @@ http:
    use_x_forwarded_for: true
    trusted_proxies:
       - !secret trusted_proxy_ip
-      - 192.168.1.0/24
-      - 127.0.0.1
+
 lovelace:
    mode: yaml
    resources:
@@ -90,3 +89,8 @@ camera:
 sonoff:
     username: !secret sonoff_username
     password: !secret sonoff_password
+
+timer:
+  entrance_motion_off:
+    duration: 00:15:00
+    restore: true

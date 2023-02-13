@@ -14,11 +14,11 @@
       entity_id: sensor.kitchen_switch_click
       to: 'off'
   action:
-      - service: light.turn_off
-        data:
-                entity_id: light.kitchen_bench_lights
+    - service: light.turn_off
+      data:
+        entity_id: light.kitchen_bench_lights
 
-- alias: Turn on lights entrance
+- alias: Toggle lights entrance
   trigger:
     - platform: state
       entity_id: sensor.entrance_switch_action
@@ -27,6 +27,44 @@
     - service: light.toggle
       data:
         entity_id: light.entrance_lights
+
+- alias: Dim up entrance
+  trigger:
+    - platform: state
+      entity_id: sensor.entrance_switch_action
+      to: 'brightness_up_click'
+  action:
+    - service: light.turn_on
+      entity_id: light.entrance_lights
+      data_template:
+        brightness: '{{states.light.entrance_lights.attributes.brightness + 30}}'
+
+- alias: Dim down entrance
+  trigger:
+    - platform: state
+      entity_id: sensor.entrance_switch_action
+      to: 'brightness_down_click'
+  action:
+    - service: light.turn_on
+      entity_id: light.entrance_lights
+      data_template:
+        brightness: '{{states.light.entrance_lights.attributes.brightness - 30}}'
+
+
+
+- alias: Disable motion lights entrance temporary
+  trigger:
+    - platform: state
+      entity_id: sensor.entrance_switch_action
+      to: 'toggle'
+  condition:
+    condition: state
+    entity_id: light.entrance_lights
+    state: 'on'
+  action:
+    - service: timer.start
+      target:
+        entity_id: timer.entrance_motion_off
   
 - alias: Turn on extra bedroom light
   trigger:
