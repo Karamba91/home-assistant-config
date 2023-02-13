@@ -28,11 +28,9 @@ cards:
            - type: light
              entity: light.kitchen_bench_lights
            - type: light
-             entity: light.bedroom_advent
+             entity: light.living_room_lights
       - type: horizontal-stack
         cards:
            - type: light
-             entity: light.living_room_advent
-           - type: light
-             entity: light.office_advent
+             entity: light.office_window
            
