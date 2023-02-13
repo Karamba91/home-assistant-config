@@ -14,18 +14,18 @@
       entity_id: 'sensor.xiaomi_button'
       to: 'hold'
   condition:
-    - and:
-      - condition: state
-        entity_id: light.bedroom_roof
-        state: "on"
-      - condition: numeric_state
-        entity_id: light.bedroom_roof
-        below: 14
+    - condition: state
+      entity_id: "light.bedroom_roof"
+      state: "on"
+    - condition: numeric_state
+      entity_id: "light.bedroom_roof"
+      attribute: "brightness"
+      below: 14
   action:
     - service: light.turn_on
       data:
-         entity_id: light.bedroom_roof
-         brightness_pct: 100
+        entity_id: light.bedroom_roof
+        brightness_pct: 100
 
 - alias: Button dim ligth bedroom roof
   trigger:
@@ -33,18 +33,18 @@
       entity_id: 'sensor.xiaomi_button'
       to: 'hold'
   condition:
-    - and:
-      - condition: state
-        entity_id: light.bedroom_roof
-        state: "on"
-      - condition: numeric_state
-        entity_id: light.bedroom_roof
-        above: 241
+    - condition: state
+      entity_id: "light.bedroom_roof"
+      state: "on"
+    - condition: numeric_state
+      entity_id: "light.bedroom_roof"
+      attribute: "brightness"
+      above: 241
   action:
     - service: light.turn_on
       data:
-         entity_id: light.bedroom_roof
-         brightness_pct: 4
+        entity_id: light.bedroom_roof
+        brightness_pct: 4
 
 - alias: Button toggle bedroom window
   trigger:
