@@ -1,0 +1,77 @@
+- id: '1730231423123'
+  alias: xiaomi button
+  trigger:
+  - platform: state
+    entity_id: sensor.mii_button_action
+    to: "single"
+  condition: []
+  action:
+  - action: light.toggle
+    target:
+      entity_id:
+        - light.upstairs_living_room_ceiling
+
+- alias: Kids room right light on
+  trigger:
+  - platform: state
+    entity_id: sensor.ikea_on_off_button_1_action
+    to: "on"
+  condition: []
+  action:
+  - action: light.turn_on
+    target:
+      entity_id: light.kids_room_right_bed
+
+- alias: Kids room right light off
+  trigger:
+  - platform: state
+    entity_id: sensor.ikea_on_off_button_1_action
+    to: "off"
+  condition: []
+  action:
+  - action: light.turn_off
+    target:
+      entity_id: light.kids_room_right_bed
+
+- alias: Kids room left light on
+  trigger:
+  - platform: state
+    entity_id: sensor.ikea_on_off_button_2_action
+    to: "on"
+  condition: []
+  action:
+  - action: light.turn_on
+    target:
+      entity_id: light.kids_room_left_bed
+
+
+- alias: Kids room left light on
+  trigger:
+  - platform: state
+    entity_id: sensor.ikea_on_off_button_2_action
+    to: "off"
+  condition: []
+  action:
+  - action: light.turn_off
+    target:
+      entity_id: light.kids_room_left_bed
+
+- id: '1730230921436'
+  alias: Controller - Philips 929002398602 Hue Dimmer switch v2
+  description: ''
+  use_blueprint:
+    path: EPMatt/philips_929002398602.yaml
+    input:
+      integration: Zigbee2MQTT
+      controller_entity: sensor.philips_hue_remote_2_action
+      helper_last_controller_event: input_text.helper_last_controller_event
+- id: '1730231473399'
+  alias: Hook - Light
+  description: ''
+  use_blueprint:
+    path: EPMatt/light.yaml
+    input:
+      controller_device: 958ed90b8cfcb40b6596311b1b465182
+      controller_entity: sensor.philips_hue_remote_2_action
+      controller_model: Philips 929002398602 Hue Dimmer switch v2
+      light: light.tv_room

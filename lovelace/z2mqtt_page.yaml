@@ -1,0 +1,7 @@
+views:
+  - title: Zigbee2MQTT
+    type: panel
+    cards:
+      - type: iframe
+        url: !secret zigbee2mqtt_url
+        aspect_ratio: 100% 

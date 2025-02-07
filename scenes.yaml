@@ -1,22 +1,85 @@
-- name: Wakeup
-  icon: 'mdi:alarm'
+- name: Window lights
+  icon: "mdi:weather-sunset-down"
   entities:
-     light.bedside_right:
-        state: on
-        brightness_pct: 100
+    light.upstairs_living_room_window: "off"
+    light.living_room_window: "on"
+    light.kitchen_window:
+      state: "on"
+      brightness: 76  
+      color_temp: 360
+        #    light.office_window:
+        #      state: "on"
+        #      brightness: 76
+        #      color_temp: 360
+    light.advent_lights:
+      state: "on"
+      brightness: 76
+      color_temp: 360
 
-- name: Occupied entrance
-  icon: 'mdi:door'
+- name: Kids affected window lights
+  icon: "mdi:weather-sunset-down"
   entities:
-     light.entrance_lights:
-        state: "on"
-        transition: 2
-        brightness_pct: 50
+    light.office_window:
+      state: "on"
+      brightness: 76
+      color_temp: 360
+    light.upstairs_living_room_window:
+      state: "on"
+      brightness: 76  
+      color_temp: 360
+    light.upstairs_living_room_corner: "on"
+    # Christmas
+    light.upstairs_living_room_window_advent: "on"
+    light.bedroom_window:
+      state: "on"
+      brigtness: 76
+      color_temp: 360
 
-- name: Empty entrance
-  icon: 'mdi:door'
+- name: General lights out
+  icon: "mdi:lightbulb-off-outline"
   entities:
-     light.entrance_lights:
-        state: "off"
-        transition: 5
+    light.upstairs_living_room_ceiling: "off"
+    light.tv_room: "off"
+    light.dining_table: "off"
+    light.bedroom_ceiling: "off"
 
+- name: Outside lights
+  icon: "mdi:weather-sunset-down"
+  entities:
+    light.balcony_upstairs:
+      state: "on"
+      brightness: 102
+      color_temp: 360
+    light.entrance_outside:
+      state: "on"
+      brightness: 102
+
+- name: Lights out indoor
+  icon: "mdi:bed-clock"
+  entities:
+    light.upstairs_living_room_window: "off"
+    light.upstairs_living_room_corner: "off"
+    light.living_room_window: "off"
+    light.kitchen_window: "off"
+    light.office_window: "off"
+    # Christmas
+    light.advent_lights: "off"
+    light.bedroom_window: "off"
+    light.upstairs_living_room_window_advent: "off"
+
+- name: Lights out outdoor
+  icon: "mdi:weather-night"
+  entities:
+    light.balcony_upstairs: "off"
+    light.entrance_outside: "off"
+
+- name: Occupied storage room
+  entities:
+    light.storage_room:
+      state: "on"
+      brightness: 255
+      color_temp: 360
+
+- name: Empty storage room
+  entities:
+    light.storage_room: "off"

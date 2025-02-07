@@ -1,0 +1,20 @@
+mode: yaml
+resources:
+  - url: /hacsfiles/pie-chart-card/pie-chart-card.js
+    type: module
+  - url: /hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js
+    type: module
+dashboards:
+  lovelace-generated:
+    mode: yaml
+    filename: lovelace/start.yaml
+    title: Start
+    icon: "mdi:view-dashboard"
+    show_in_sidebar: true
+  services-dashboards:
+    mode: yaml
+    filename: lovelace/z2mqtt_page.yaml
+    title: Zigbee2MQTT
+    icon: "mdi:view-dashboard"
+    show_in_sidebar: true
+      

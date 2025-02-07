@@ -1,0 +1,36 @@
+- name: Docker
+  containers:
+    - homeassistant
+    - mqtt
+    - zigbee2mqtt
+    - pihole
+    - audiobookshelf
+    - plex
+    - traefik
+    - unifi-network-application
+    - heimdall
+  rename:
+    homeassistant: "Homeassistant"
+    mqtt: "Mosquitto Broker"
+    zigbee2mqtt: "Zigbee2MQTT"
+    pihole: "Pi-Hole"
+    audiobookshelf: "Audiobookshelf"
+    plex: "Plex"
+    traefik: "Traefik"
+    unifi-network-application: "UniFi controller"
+    heimdall: "Heimdall"
+    volvo2mqtt: "Volvo2Mqtt"
+  monitored_conditions:
+    - version
+    - containers_running
+    - containers_total
+    - containers_paused
+    - containers_stopped
+    - state
+    - status
+    - memory
+    - image
+    - network_speed_down
+    - network_speed_up
+    - 1cpu_percentage
+    - allinone

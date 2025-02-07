@@ -1,0 +1,121 @@
+- alias: Evening lights
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -01:00:00
+  condition: []
+  action:
+  - action: scene.turn_on
+    metadata: {}
+    target:
+      entity_id:
+      - scene.window_lights
+      - scene.outside_lights
+      - scene.kids_affected_window_lights
+    data:
+      transition: 5
+  mode: single
+      
+
+- alias: "Good night weekday"
+  description: ''
+  trigger:
+    - at: "23:00"
+      platform: time
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - sun
+  action:
+  - action: scene.turn_on
+    metadata: {}
+    target:
+      entity_id: 
+        - scene.lights_out_indoor
+        - scene.lights_out_outdoor
+    data:
+      transition: 5
+  mode: single
+
+- alias: "Good night weekend"
+  description: ''
+  trigger:
+    - at: "23:59"
+      platform: time
+  condition:
+    - condition: time
+      weekday:
+        - fri
+        - sat
+  action:
+  - action: scene.turn_on
+    metadata: {}
+    target:
+      entity_id: 
+        - scene.lights_out_indoor
+        - scene.lights_out_outdoor
+    data:
+      transition: 5
+  mode: single
+
+- alias: "Wake up time"
+  trigger:
+    - at: "05:00"
+      platform: time
+  action:
+  - action: scene.turn_on
+    metadata: {}
+    target:
+      entity_id:
+      - scene.window_lights
+      - scene.outside_lights
+    data:
+      transition: 5
+
+- alias: Day time
+  trigger:
+    - platform: sun
+      event: sunrise
+      offset: "00:45:00"
+  action:
+  - action: scene.turn_on
+    metadata: {}
+    target:
+      entity_id: 
+        - scene.lights_out_indoor
+        - scene.lights_out_outdoor
+    data:
+      transition: 5
+
+
+  #################################################################
+################### Motion sensor automations ###################
+#################################################################
+- alias: Entrance motion activate
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_1_occupancy
+      to: 'on'
+  # condition:
+  #   condition: state 
+  #   entity_id: timer.entrance_motion_off
+  #   state: 'idle'
+  action:
+      service: scene.turn_on
+      target:
+         entity_id: scene.occupied_storage_room
+
+- alias: Entrance motion deactivate
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_1_occupancy
+      to: 'off'
+  action:
+      service: scene.turn_on
+      target:
+         entity_id: scene.empty_storage_room

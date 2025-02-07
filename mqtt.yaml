@@ -1,0 +1,3 @@
+sensor:
+  - name: "Card reader"
+    state_topic: "nfc_reader/card/id"

@@ -1,5 +1,0 @@
-- name: Volvo Cars
-  latitude: !secret volvo_lat
-  longitude: !secret volvo_long
-  radius: 500
-  icon: mdi:factory

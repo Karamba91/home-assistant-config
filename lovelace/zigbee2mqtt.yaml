@@ -1,6 +1,0 @@
-title: "Zigbee2MQTT"
-path: zigbee
-panel: true
-cards:
-  - type: iframe
-    url: !secret zigbee2mqtt_url

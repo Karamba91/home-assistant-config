@@ -1,0 +1,147 @@
+
+title: Home Server
+cards:
+- type: "custom:pie-chart-card"
+  title: Containers
+  entities:
+    - entity: sensor.docker_containers_running
+      name: Running
+    - entity: sensor.docker_containers_stopped
+      name: Stopped
+    - entity: sensor.docker_containers_paused
+      name: Paused
+
+- type: entities
+  title: Docker containers
+  entities:
+    - entity: sensor.docker_audiobookshelf
+      type: "custom:multiple-entity-row"
+      name: audiobookshelf
+      state_header: Status
+      secondary_info:
+        attribute: status
+        name: "Status:"
+      entities:
+        - attribute: memory
+          name: Memory
+          unit: MB
+        - attribute: network_speed_down
+          name: Speed down
+          unit: Mb/s
+        - attribute: network_speed_up
+          name: Speed up
+          unit: Mb/s
+
+    - entity: sensor.docker_heimdall
+      type: "custom:multiple-entity-row"
+      name: heimdall
+      state_header: Status
+      secondary_info:
+        attribute: status
+        name: "Status:"
+      entities:
+        - attribute: memory
+          name: Memory
+          unit: MB
+        - attribute: network_speed_down
+          name: Speed down
+          unit: Mb/s
+        - attribute: network_speed_up
+          name: Speed up
+          unit: Mb/s
+
+    - entity: sensor.docker_mqtt
+      type: "custom:multiple-entity-row"
+      name: mqtt
+      state_header: Status
+      secondary_info:
+        attribute: status
+        name: "Status:"
+      entities:
+        - attribute: memory
+          name: Memory
+          unit: MB
+        - attribute: network_speed_down
+          name: Speed down
+          unit: Mb/s
+        - attribute: network_speed_up
+          name: Speed up
+          unit: Mb/s
+
+    - entity: sensor.docker_traefik
+      type: "custom:multiple-entity-row"
+      name: traefik
+      state_header: Status
+      secondary_info:
+        attribute: status
+        name: "Status:"
+      entities:
+        - attribute: memory
+          name: Memory
+          unit: MB
+        - attribute: network_speed_down
+          name: Speed down
+          unit: Mb/s
+        - attribute: network_speed_up
+          name: Speed up
+          unit: Mb/s
+
+    - entity: sensor.docker_unifi_network_application
+      type: "custom:multiple-entity-row"
+      name: unifi_network_application
+      state_header: Status
+      secondary_info:
+        attribute: status
+        name: "Status:"
+      entities:
+        - attribute: memory
+          name: Memory
+          unit: MB
+        - attribute: network_speed_down
+          name: Speed down
+          unit: Mb/s
+        - attribute: network_speed_up
+          name: Speed up
+          unit: Mb/s
+
+    - entity: sensor.docker_zigbee2mqtt
+      type: "custom:multiple-entity-row"
+      name: zigbee2mqtt
+      state_header: Status
+      secondary_info:
+        attribute: status
+        name: "Status:"
+      entities:
+        - attribute: memory
+          name: Memory
+          unit: MB
+        - attribute: network_speed_down
+          name: Speed down
+          unit: Mb/s
+        - attribute: network_speed_up
+          name: Speed up
+          unit: Mb/s
+
+    - entity: sensor.docker_plex
+      type: "custom:multiple-entity-row"
+      name: plex
+      state_header: Status
+      secondary_info:
+        attribute: status
+        name: "Status:"
+      entities:
+        - attribute: memory
+          name: Memory
+          unit: MB
+
+    - entity: sensor.docker_homeassistant
+      type: "custom:multiple-entity-row"
+      name: homeassistant
+      state_header: Status
+      secondary_info:
+        attribute: status
+        name: "Status:"
+      entities:
+        - attribute: memory
+          name: Memory
+          unit: MB

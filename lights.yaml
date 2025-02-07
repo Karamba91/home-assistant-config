@@ -1,60 +1,27 @@
+# Groups
+- platform: group
+  name: "Upstairs living room ceiling"
+  entities:
+    - light.upstairs_living_room_1
+    - light.upstairs_living_room_2
+    - light.upstairs_living_room_3
+
+- platform: group
+  name: Living room window advent
+  entities:
+    - light.living_room_window
+    - light.living_room_window_2
+
+- platform: group
+  name: Advent lights
+  entities:
+    - light.living_room_window_advent
+    - light.office_window_advent
+    - light.living_room_window_star
+    - light.kitchen_window_star
+
+# Switich as light
 - platform: switch
-  name: Kitchen bench left
-  entity_id: switch.sonoff_kitchen_1
-
-- platform: switch
-  name: Kitchen bench right
-  entity_id: switch.sonoff_kitchen_2
-
-- platform: group
-  name: Living room lights
-  entities:
-    - light.living_room_window_right
-    - light.living_room_window_left
-    - light.living_room_advent
-
-- platform: group
-  name: Entrance lights
-  entities:
-    - light.entrance_1
-    - light.entrance_2
-    - light.entrance_3
-
-- platform: group
-  name: Office lights
-  entities:
-    - light.office_window
-    - light.office_advent
-
-- platform: group
-  name: Bedroom lights
-  entities:
-    - light.bedroom_roof
-    - light.bedroom_window
-    - light.bedroom_advent
-
-- platform: group
-  name: Kitchen bench lights
-  entities:
-    - light.kitchen_bench_left
-    - light.kitchen_bench_right
-
-- platform: group
-  name: Extra bedroom lights
-  entities:
-    - light.advent_star
- 
-################ Christmas ##################
-- platform: switch
-  name: Living room advent
-  entity_id: switch.living_room_switch
-
-- platform: switch
-  name: Office advent
-  entity_id: switch.office_switch
-
-- platform: switch
-  name: Bedroom advent
-  entity_id: switch.bedroom_switch
-
+  name: Upstairs living room corner
+  entity_id: switch.upstairs_living_room_corner
 

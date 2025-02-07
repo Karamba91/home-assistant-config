@@ -1,91 +1,38 @@
-# Configure a default setup of Home Assistant (frontend, api, etc)
+
+# Loads default set of integrations. Do not remove.
 default_config:
 
 http:
-   ip_ban_enabled: true
-   login_attempts_threshold: !secret ip_ban_threshold
-   use_x_forwarded_for: true
-   trusted_proxies:
-      - !secret trusted_proxy_ip
+  ip_ban_enabled: true
+  login_attempts_threshold: !secret failure_to_ban
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - !secret ip_proxy
 
-lovelace:
-   mode: yaml
-   resources:
-     - url: /hacsfiles/vacuum-card/vacuum-card.js
-       type: module
-     - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
-       type: module
+input_datetime:
 
+# Load frontend themes from the themes folder
 frontend:
   themes: !include_dir_merge_named themes
 
-mobile_app:
-
-person:
-  - name: Erik
-    id: erik
-    user_id: !secret erik_user_id
-    device_trackers:
-      - device_tracker.erik_phone
-  - name: Elin
-    id: elin
-    user_id: !secret elin_user_id
-    device_trackers:
-      - device_tracker.elins_iphone
-      - device_tracker.elins_iphone_wifi
-
-# Text to speech
-tts:
-  - platform: google_translate
-
-group: !include groups.yaml
-automation: !include_dir_merge_list automation/
+automation: !include_dir_merge_list automations/
 script: !include scripts.yaml
 scene: !include scenes.yaml
 light: !include lights.yaml
-zone: !include zones.yaml
-sensor: !include sensor.yaml
+lovelace:
+  !include lovelace_config.yaml
+mqtt: !include mqtt.yaml
+
+monitor_docker: !include monitor_docker.yaml
 
 google_assistant:
-   project_id: !secret google_assistant_project_id
-   service_account: !include Home-assistant-docker-a6ed3f94ed6d.json
-   report_state: true
-   expose_by_default: true
-   exposed_domains:
-      - switch
-      - light
+  project_id: !secret project_id
+  service_account: !include SERVICE_ACCOUNT.json
+  report_state: true
+  exposed_domains:
+    - light
 
-input_datetime:
-    wakeup_lights_on:
-      name: Time to turn on lights
-      has_date: true
-      has_time: true
-
-camera:
-  - platform: local_file
-    file_path: !secret file_path
-
-  - platform: xiaomi_cloud_map_extractor
-    host: !secret vacuum_ip
-    token: !secret vacuum_token
-    username: !secret xiaomi_username
-    password: !secret xiaomi_password
-    draw: [all]
-    attributes:
-      - calibration_points
-    map_transformation:
-      scale: 1.5
-      trim:
-        top: 20
-        right: 20
-        left: 20
-        bottom: 20
-
-sonoff:
-    username: !secret sonoff_username
-    password: !secret sonoff_password
-
-timer:
-  entrance_motion_off:
-    duration: 00:15:00
-    restore: true
+input_text:
+  helper_last_controller_event:
+    name: Helper - Last Controller Event
+    initial: temp
