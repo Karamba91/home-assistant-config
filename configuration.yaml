@@ -10,6 +10,9 @@ http:
     - !secret ip_proxy
 
 input_datetime:
+homeassistant:
+  allowlist_external_dirs:
+    - "/media"
 
 # Load frontend themes from the themes folder
 frontend:
@@ -19,6 +22,7 @@ automation: !include_dir_merge_list automations/
 script: !include scripts.yaml
 scene: !include scenes.yaml
 light: !include lights.yaml
+template: !include template_sensor.yaml
 lovelace:
   !include lovelace_config.yaml
 mqtt: !include mqtt.yaml

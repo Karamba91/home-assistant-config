@@ -1,0 +1,82 @@
+- alias: Car Home - Charge Cable Not Connected
+  description: Sends a notification if the car is home and the charge cable is not connected.
+  trigger:
+    - platform: state
+      entity_id: device_tracker.volvo_xc60_location # Replace with your car's device tracker or presence sensor
+      to: 'home' # Triggers when your car arrives home
+      for:
+        minutes: 5
+    - platform: time
+      at: "21:00:00" # Triggers daily at 9:00 PM
+  condition:
+    - condition: state
+      entity_id: device_tracker.volvo_xc60_location # Replace with your car's device tracker or presence sensor
+      state: 'home' # Checks if the car is currently home
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: sensor.volvo_xc60_charging_connection_status # Replace with your charge cable sensor entity ID
+          state: 'connection_status_connected_ac' # 'off' means the cable is NOT connected. Adjust based on your sensor's states (e.g., 'disconnected', 'false')
+    - condition: or # Use 'or' to check for times before 6 AM OR after 9 PM
+      conditions:
+        - condition: time
+          before: '06:00:00' # Covers 00:00:00 to 05:59:59
+        - condition: time
+          after: '21:00:00'
+  action:
+    - service: notify.mobile_app_eriks_phone # Replace with your notification service (e.g., notify.mobile_app_your_phone_name)
+      data:
+        message: "Your car is home and the charge cable is not connected! It's 9 PM. ⚡"
+        title: "Charge Cable Alert"
+        data:
+          # Optional: Add actionable notifications
+          actions:
+            - action: "SILENCE_ALERT" # Define an action to silence future alerts (requires companion app setup)
+              title: "Silence for 1 hour"
+            - action: "OPEN_APP" # Optional: Action to open your car's app or Home Assistant app
+              title: "Open App"
+  mode: single # Ensures only one instance of the automation runs at a time
+
+- alias: Camera motion detected - Notify
+  description: Sends a notification when motion is detected by the camera.
+  variables:
+    timestamp: "{{ now().strftime('%Y.%m.%d-%H:%M:%S') }}"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.garden_camera_person_detection # Replace with your camera's motion sensor entity ID
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.garden_camera_cell_motion_detection
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: lawn_mower.elsa
+        state: 'docked'
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: binary_sensor.everyone_asleep # Replace with your camera's motion sensor entity ID
+            state: 'on' # Checks if the motion sensor is currently detecting motion
+          - condition: not
+            conditions:
+              - condition: state
+                entity_id: person.erik
+                state: 'home'
+              - condition: state
+                entity_id: person.elin
+                state: 'home'
+  action:
+    - service: camera.snapshot
+      data:
+        entity_id: camera.garden_camera_hd_stream # Replace with your camera entity ID
+        filename: "/media/garden_camera/camera_snapshot_{{timestamp}}.jpg" # Adjust the path as needed
+    - delay: "00:00:02"
+    - service: notify.mobile_app_eriks_phone # Replace with your notification service (e.g., notify.mobile_app_your_phone_name)
+      data:
+        message: Garden motion at {{timestamp}}
+        data:
+          image: /media/local/garden_camera/camera_snapshot_{{timestamp}}.jpg
+          clickAction: 'entityId:camera.garden_camera_hd_stream'
+  mode: single # Ensures only one instance of the automation runs at a time
