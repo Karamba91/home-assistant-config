@@ -53,6 +53,9 @@
     light.entrance_outside:
       state: "on"
       brightness: 102
+    light.front_balcony:
+      state: "on"
+      brightness: 200
 
 - name: Lights out indoor
   icon: "mdi:bed-clock"
@@ -72,6 +75,7 @@
   entities:
     light.balcony_upstairs: "off"
     light.entrance_outside: "off"
+    light.front_balcony: "off"
 
 - name: Occupied storage room
   entities:
