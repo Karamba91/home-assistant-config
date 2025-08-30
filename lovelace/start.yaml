@@ -2,3 +2,4 @@ views:
   - !include start_page.yaml
   - !include home_server.yaml
   - !include car.yaml
+  - !include robots.yaml
