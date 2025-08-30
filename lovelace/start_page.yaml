@@ -1,71 +1,120 @@
 title: Start
+
+  
+badges:
+  - type: entity
+    entity: person.erik
+    icon: mdi:home
+    show_name: true
+  - type: entity
+    entity: person.elin
+    icon: mdi:home
+    show_name: true
+  - type: entity
+    entity: binary_sensor.everyone_asleep
+    icon: mdi:bed
+    show_name: true
 cards:
-  - type: entity-filter
-    entities:
-      - person.erik
-      - person.elin
-      - device_tracker.volvo
-    conditions:
-      - condition: state
-        state: "home"
-  - type: entities
-    title: Office
-    show_header_toggle: false 
-    entities:
-      - light.office_window
-  - type: entities
-    title: Upstairs living room
-    show_header_toggle: false
-    entities:
-      - light.upstairs_living_room_ceiling
-      - light.upstairs_living_room_corner
-      - light.upstairs_living_room_window
-  - type: entities
-    title: Outside 
-    show_header_toggle: false
-    entities:
-      - light.balcony_upstairs
-      - light.entrance_outside
-  - type: entities
-    title: Living room 
-    show_header_toggle: false
-    entities:
-      - light.living_room_window
-      - light.tv_room
-      - light.dining_table
-  - type: entities
-    title: Kitchen
-    show_header_toggle: false
-    entities:
-      - light.upstairs_living_room_window
-  - type: entities
-    title: Kids room 
-    show_header_toggle: false
-    entities:
-      - light.kids_room
-      - light.kids_room_left_bed
-      - light.kids_room_right_bed
-      - sensor.climate_2_temperature
-      - sensor.climate_2_humidity
-  - type: entities
-    title: Bedroom
-    show_header_toggle: false
-    entities:
-      - light.bedroom_ceiling
-      - sensor.climate_1_temperature
-      - sensor.climate_1_humidity
+  - type: vertical-stack
+    cards:
+    - type: heading
+      heading: Office
+      icon: mdi:nas
+    - type: tile
+      entity: light.office_window
+
+  - type: vertical-stack
+    cards:
+    - type: heading
+      heading: Upstairs living room
+      icon: mdi:sofa
+    - type: tile
+      entity: light.upstairs_living_room_ceiling
+    - type: tile
+      entity: light.upstairs_living_room_corner
+    - type: tile
+      entity: light.upstairs_living_room_window
+      features:
+        - type: "light-brightness"
+
+  - type: vertical-stack
+    cards:
+    - type: heading
+      heading: Outside
+      icon: mdi:nas
+    - type: tile
+      entity: light.balcony_upstairs
+    - type: tile
+      entity: light.entrance_outside
+    - type: tile
+      entity: light.front_balcony
+
+  - type: vertical-stack
+    cards:
+    - type: heading
+      heading: Living room
+      icon: mdi:sofa
+    - type: tile
+      entity: light.living_room_window
+    - type: tile
+      entity: light.tv_room
+    - type: tile
+      entity: light.dining_table
+      features:
+        - type: "light-brightness"
+
+  - type: vertical-stack
+    cards:
+    - type: heading
+      heading: Kids room
+      icon: mdi:teddy-bear
+      badges:
+        - type: entity
+          entity: sensor.climate_2_temperature
+        - type: entity
+          entity: sensor.climate_2_humidity
+    type: horizontal-stack
+    cards:
+      - type: tile
+        entity: light.kids_room
+      - type: tile
+        entity: light.kids_room_left_bed
+      - type: tile
+        entity: light.kids_room_right_bed
+
+  - type: vertical-stack
+    cards:
+    - type: heading
+      heading: Bedroom
+      icon: mdi:bed-king-outline
+      badges:
+        - type: entity
+          entity: sensor.climate_1_temperature
+        - type: entity
+          entity: sensor.climate_1_humidity
+    - type: tile
+      entity: light.bedroom_ceiling
   
-  - type: entities
-    title: Entrance
-    entities:
-      - sensor.climate_3_temperature
-      - sensor.climate_3_humidity
-  
-  - type: entities
-    title: Storage room
-    entities:
-      - light.storage_room
-      - binary_sensor.motion_1_occupancy
+  - type: heading
+    heading: Entrance
+    icon: mdi:door
+    badges:
+      - type: entity
+        entity: sensor.climate_3_temperature
+      - type: entity
+        entity: sensor.climate_3_humidity
+
+  - type: vertical-stack
+    cards:
+    - type: heading
+      heading: Storage room
+      icon: mdi:warehouse
+      badges:
+        - type: entity
+          entity: binary_sensor.motion_1_occupancy
+          show_state: true
+    - type: tile
+      entity: light.storage_room
   
   - type: conditional
     conditions:
