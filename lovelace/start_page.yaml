@@ -1,6 +1,4 @@
 title: Start
-
-  
 badges:
   - type: entity
     entity: person.erik
@@ -73,14 +71,13 @@ cards:
           entity: sensor.climate_2_temperature
         - type: entity
           entity: sensor.climate_2_humidity
-    type: horizontal-stack
-    cards:
-      - type: tile
-        entity: light.kids_room
-      - type: tile
-        entity: light.kids_room_left_bed
-      - type: tile
-        entity: light.kids_room_right_bed
+
+    - type: tile
+      entity: light.kids_room
+    - type: tile
+      entity: light.kids_room_left_bed
+    - type: tile
+      entity: light.kids_room_right_bed
 
   - type: vertical-stack
     cards:
@@ -94,7 +91,7 @@ cards:
           entity: sensor.climate_1_humidity
     - type: tile
       entity: light.bedroom_ceiling
-  
+
   - type: heading
     heading: Entrance
     icon: mdi:door
@@ -115,7 +112,7 @@ cards:
           show_state: true
     - type: tile
       entity: light.storage_room
-  
+
   - type: conditional
     conditions:
       - condition: state
@@ -138,3 +135,14 @@ cards:
       entities:
         - switch.zigbee2mqtt_bridge_permit_join
         - sensor.zigbee2mqtt_bridge_permit_join_timeout
+
+  - type: glance
+    title: Bedtime
+    entities:
+      - entity: input_datetime.weekday_bedtime_start
+        name: Weekday Bedtime
+      - entity: input_datetime.weekend_bedtime_start
+        name: Weekend Bedtime
+      - entity: input_datetime.wake_up_time
+        name: Wake Up Time
+
