@@ -1,0 +1,4 @@
+title: Camera feed
+cards:
+  - type: custom:camera-agora-card
+    entity: camera.elsa_none

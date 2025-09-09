@@ -3,32 +3,23 @@ title: Robots
 cards:
   - type: "custom:vacuum-card"
     entity: vacuum.borje
-    # map: image.borje_map
-    actions: 
-      start:
-        service: vacuum.start
-        data:
-          rooms: 1
-        target:
-          entity_id: vacuum.borje
-      # stop:
-      #   service: vacuum.stop
-      #   target:
-      #     entity_id: vacuum.borje
+    map: image.borje_map
     stats:
       default:
-        - attribute: "tv_room"
-          name: "Tv room"
-        - attribute: kitchen
-          name: "Kitchen"
-        - attribute: entrance
-          name: "Entrance"
-      cleaning:
-        - entity_id: sensor.battery_borje
-          name: Battery
         - entity_id: sensor.borje_filter_lifespan
-          name: Filter lifespan
+          subtitle: "Filter lifespan left"
+          unit: "%"
         - entity_id: sensor.borje_main_brush_lifespan
-          name: Main brush lifespan
-        - entity_id: sensor.borje_side_brush_lifespan
-          name: Side brush lifespan
+          subtitle: "Main brush lifespan left"
+          unit: "%"
+
+    shortcuts:
+      - name: Vacuum all
+        icon: "mdi:robot-vacuum"
+        service: script.vacuum_all_rooms
+      - name: Mop all
+        icon: "mdi:broom"
+        service: script.mop_all_rooms
+      - name: Clean kitchen
+        icon: "mdi:silverware"
+        service: script.clean_kitchen

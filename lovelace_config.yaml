@@ -6,6 +6,8 @@ resources:
     type: module
   - url: /hacsfiles/vacuum-card/vacuum-card.js
     type: module
+  - url: /mammotion_webrtc/agora-client.js
+    type: module
 dashboards:
   lovelace-generated:
     mode: yaml

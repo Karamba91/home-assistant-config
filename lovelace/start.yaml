@@ -3,3 +3,4 @@ views:
   - !include home_server.yaml
   - !include car.yaml
   - !include robots.yaml
+  - !include camera.yaml
