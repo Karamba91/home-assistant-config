@@ -1,0 +1,104 @@
+vacuum_all_rooms:
+  alias: Vacuum all rooms
+  sequence:
+    - action: number.set_value
+      metadata: {}
+      data:
+        value: '1'
+      target:
+        entity_id: number.borje_clean_count
+
+    - action: select.select_option
+      metadata: {}
+      data:
+        option: vacuum
+      target:
+        entity_id:
+        - select.borje_work_mode
+
+    - action: vacuum.set_fan_speed
+      data:
+        fan_speed: max_plus
+      target:
+        entity_id: vacuum.borje
+
+    - action: vacuum.start
+      metadata: {}
+      target:
+        entity_id: vacuum.borje
+  mode: single
+
+mop_all_rooms:
+  alias: Mop all rooms
+  sequence:
+    - action: number.set_value
+      metadata: {}
+      data:
+        value: '1'
+      target:
+        entity_id: number.borje_clean_count
+
+    - action: select.select_option
+      metadata: {}
+      data:
+        option: mop
+      target:
+        entity_id:
+        - select.borje_work_mode
+
+    - action: select.select_option
+      data:
+        option: high
+      target:
+        entity_id: select.borje_water_flow_level
+
+    - action: vacuum.send_command
+      metadata: {}
+      data:
+        command: spot_area
+        params:
+          rooms: "7,6,1"
+          cleanings: 1
+      target:
+        entity_id: vacuum.borje
+  mode: single
+
+clean_kitchen:
+  alias: Clean kitchen
+  sequence:
+    - action: select.select_option
+      data:
+        option: high
+      target:
+        entity_id: select.borje_water_flow_level
+
+    - action: vacuum.set_fan_speed
+      data:
+        fan_speed: max_plus
+      target:
+        entity_id: vacuum.borje
+
+    - action: select.select_option
+      metadata: {}
+      data:
+        option: vacuum_then_mop
+      target:
+        entity_id: 
+        - select.borje_work_mode
+
+    - action: vacuum.set_fan_speed
+      data:
+        fan_speed: max_plus
+      target:
+        entity_id: vacuum.borje
+
+    - action: vacuum.send_command
+      metadata: {}
+      data:
+        command: spot_area
+        params:
+          rooms: "1"
+          cleanings: 1
+      target:
+        entity_id: vacuum.borje
+  mode: single
