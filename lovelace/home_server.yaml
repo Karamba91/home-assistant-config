@@ -145,3 +145,21 @@ cards:
         - attribute: memory
           name: Memory
           unit: MB
+    
+    - entity: sensor.docker_codeserver
+      type: "custom:multiple-entity-row"
+      name: codeserver
+      state_header: Status
+      secondary_info:
+        attribute: status
+        name: "Status:"
+      entities:
+        - attribute: memory
+          name: Memory
+          unit: MB
+        - attribute: network_speed_down
+          name: Speed down
+          unit: Mb/s
+        - attribute: network_speed_up
+          name: Speed up
+          unit: Mb/s

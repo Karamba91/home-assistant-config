@@ -2,3 +2,7 @@ title: Camera feed
 cards:
   - type: custom:camera-agora-card
     entity: camera.elsa_none
+  - type: entity
+    entity: camera.garden_camera_hd_stream
+  - type: entity
+    entity: camera.garage_camera_hd_stream

@@ -23,3 +23,5 @@ cards:
       - name: Clean kitchen
         icon: "mdi:silverware"
         service: script.clean_kitchen
+
+

@@ -1,5 +1,6 @@
 views:
   - !include start_page.yaml
+  - !include tv.yaml
   - !include home_server.yaml
   - !include car.yaml
   - !include robots.yaml
