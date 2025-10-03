@@ -8,6 +8,8 @@ resources:
     type: module
   - url: /mammotion_webrtc/agora-client.js
     type: module
+  - url: /hacsfiles/universal-remote-card/universal-remote-card.min.js
+    type: module
 dashboards:
   lovelace-generated:
     mode: yaml
@@ -20,5 +22,11 @@ dashboards:
     filename: lovelace/z2mqtt_page.yaml
     title: Zigbee2MQTT
     icon: "mdi:view-dashboard"
+    show_in_sidebar: true
+  services-codeserver:
+    mode: yaml
+    filename: lovelace/codeserver.yaml
+    title: codeserver
+    icon: "mdi:home-assistant"
     show_in_sidebar: true
       

@@ -1,0 +1,7 @@
+views:
+  - title: Code server
+    type: panel
+    cards:
+      - type: iframe
+        url: !secret codeserver_url
+        aspect_ratio: 100% 

@@ -1,0 +1,22 @@
+title: TVs
+cards:
+  - type: custom:universal-remote-card
+    remote_id: remote.living_room_tv
+    title: Living room TV
+    rows:
+      - - power
+        - channel_up
+        - info
+        - channel_down
+      - - netflix
+        - youtube
+        - plex
+      - - volume_buttons
+      - - dpad
+      - - back
+        - home
+        - tv
+      - - rewind
+        - play
+        - pause
+        - fast_forward
