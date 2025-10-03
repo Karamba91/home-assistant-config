@@ -9,6 +9,7 @@
     - traefik
     - unifi-network-application
     - heimdall
+    - codeserver
   rename:
     homeassistant: "Homeassistant"
     mqtt: "Mosquitto Broker"
@@ -20,6 +21,7 @@
     unifi-network-application: "UniFi controller"
     heimdall: "Heimdall"
     volvo2mqtt: "Volvo2Mqtt"
+    codeserver: "VScode"
   monitored_conditions:
     - version
     - containers_running
