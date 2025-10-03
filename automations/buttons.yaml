@@ -1,11 +1,14 @@
 - id: '1730231423123'
   alias: xiaomi button
   trigger:
-  - platform: state
-    entity_id: event.mii_button_action
-    attribute: event_type
-    to: "single"
-  condition: []
+  - platform: event
+    event_type: state_changed
+    event_data:
+      entity_id: event.mii_button_action
+  condition:
+    - condition: template
+      value_template: >
+        {{ state_attr('event.mii_button_action', 'event_type') == 'single' }}
   action:
   - action: light.toggle
     target:

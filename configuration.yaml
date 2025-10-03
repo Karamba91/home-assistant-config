@@ -9,7 +9,21 @@ http:
   trusted_proxies:
     - !secret ip_proxy
 
+# input_datetimes.yaml
 input_datetime:
+  weekday_bedtime_start:
+    name: Weekday Bedtime Start
+    has_date: false
+    has_time: true
+  weekend_bedtime_start:
+    name: Weekend Bedtime Start
+    has_date: false
+    has_time: true
+  wake_up_time:
+    name: Wake Up Time
+    has_date: false
+    has_time: true
+
 homeassistant:
   allowlist_external_dirs:
     - "/media"
