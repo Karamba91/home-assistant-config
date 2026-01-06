@@ -24,7 +24,7 @@
         - condition: time
           after: '21:00:00'
   action:
-    - service: notify.mobile_app_eriks_phone # Replace with your notification service (e.g., notify.mobile_app_your_phone_name)
+    - service: notify.mobile_app_pixel_9_pro # Replace with your notification service (e.g., notify.mobile_app_your_phone_name)
       data:
         message: "Your car is home and the charge cable is not connected! It's 9 PM. ⚡"
         title: "Charge Cable Alert"
@@ -73,7 +73,7 @@
         entity_id: camera.garden_camera_hd_stream # Replace with your camera entity ID
         filename: "/media/garden_camera/camera_snapshot_{{timestamp}}.jpg" # Adjust the path as needed
     - delay: "00:00:02"
-    - service: notify.mobile_app_eriks_phone # Replace with your notification service (e.g., notify.mobile_app_your_phone_name)
+    - service: notify.mobile_app_pixel_9_pro # Replace with your notification service (e.g., notify.mobile_app_your_phone_name)
       data:
         message: Garden motion at {{timestamp}}
         data:
