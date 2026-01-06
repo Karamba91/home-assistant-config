@@ -8,11 +8,11 @@ cards:
         - channel_up
         - info
         - channel_down
-      - - netflix
+      - - keyboard
         - youtube
         - plex
       - - volume_buttons
-      - - dpad
+      - - touchpad
       - - back
         - home
         - tv

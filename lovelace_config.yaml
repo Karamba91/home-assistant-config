@@ -10,6 +10,8 @@ resources:
     type: module
   - url: /hacsfiles/universal-remote-card/universal-remote-card.min.js
     type: module
+  - url: /hacsfiles/weather-radar-card/weather-radar-card.js
+    type: module
 dashboards:
   lovelace-generated:
     mode: yaml

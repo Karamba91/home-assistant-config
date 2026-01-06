@@ -1,0 +1,51 @@
+binary_sensor: 
+  - name: "Everyone Asleep"
+    unique_id: everyone_asleep_status
+    state: >
+      {% set weekday_bedtime_start = states('input_datetime.weekday_bedtime_start')|today_at %}
+      {% set weekend_bedtime_start = states('input_datetime.weekend_bedtime_start')|today_at %}
+      {% set wake_up_time = states('input_datetime.wake_up_time')|today_at %}
+
+      {% set person1_at_home = is_state('person.erik', 'home') %}
+      {% set person2_at_home = is_state('person.elin', 'home') %}
+      {% set person1_charging = is_state('sensor.pixel_9_pro_charger_type', 'ac') %}
+      {% set person2_charging = is_state('sensor.elins_iphone_battery_state', 'Charging') %}
+
+      {% if (now().weekday() + 1 % 7) < 5 %} {# Sunday - Thursday #}
+        {% set night_time = (now() >= weekday_bedtime_start or now() < wake_up_time) %}
+      {% else %} {# Friday and Saturday #}
+        {% set night_time = (now() >= weekend_bedtime_start or now() < wake_up_time) %}
+      {% endif %}
+
+      {% if person1_at_home and person2_at_home %}
+        {{ person1_charging and person2_charging and night_time }}
+      {% elif person1_at_home %}
+        {{ person1_charging and night_time }}
+      {% elif person2_at_home %}
+        {{ person2_charging and night_time }}
+      {% else %}
+        {# No one is home, so the condition is not met. #}
+        false
+      {% endif %}
+
+
+    icon: >
+      {% if is_state('binary_sensor.everyone_asleep', 'on') %}
+        mdi:sleep§
+      {% else %}
+        mdi:bed-empty
+      {% endif %}
+
+  - name: "Nobody Home"
+    unique_id: nobody_home_status
+    state: >
+      {% set person1_at_home = is_state('person.erik', 'home') %}
+      {% set person2_at_home = is_state('person.elin', 'home') %}
+
+      not (person1_at_home or person2_at_home)
+    icon: >
+      {% if is_state('binary_sensor.nobody_home', 'on') %}
+        mdi:home-off
+      {% else %}
+        mdi:home
+      {% endif %}

@@ -4,21 +4,21 @@ cards:
     title: Control
     show_header_toggle: false 
     entities:
-      - button.volvo_xc60_climatization_start
-      - button.volvo_xc60_climatization_stop
+      - button.volvo_xc60_start_climatization
+      - button.volvo_xc60_stop_climatization
       - lock.volvo_xc60_lock
   - type: entities
     title: Warning
     show_header_toggle: false 
     entities:
-      - binary_sensor.volvo_xc60_washer_fluid_level_warning
-      - binary_sensor.volvo_xc60_turn_indication_front_left_warning
-      - binary_sensor.volvo_xc60_turn_indication_rear_left_warning
-      - binary_sensor.volvo_xc60_turn_indication_front_right_warning
-      - binary_sensor.volvo_xc60_turn_indication_rear_right_warning
-      - binary_sensor.volvo_xc60_service_warning
-      - binary_sensor.volvo_xc60_oil_level_warning
-      - binary_sensor.volvo_xc60_brake_fluid_level_warning
+      - binary_sensor.volvo_xc60_washer_fluid
+      - binary_sensor.volvo_xc60_turn_indication_front_left
+      - binary_sensor.volvo_xc60_turn_indication_rear_left
+      - binary_sensor.volvo_xc60_turn_indication_front_right
+      - binary_sensor.volvo_xc60_turn_indication_rear_right
+      - sensor.volvo_xc60_service
+      - binary_sensor.volvo_xc60_oil_level
+      - binary_sensor.volvo_xc60_brake_fluid
   - type: map
     aspect_ratio: 16:9
     default_zoom: 14
@@ -30,5 +30,5 @@ cards:
     show_header_toggle: false 
     entities:
       - sensor.volvo_xc60_charging_connection_status
-      - sensor.volvo_xc60_battery_charge_level
-      - sensor.volvo_xc60_charging_system_status
+      - sensor.volvo_xc60_battery
+      - sensor.volvo_xc60_charging_connection_status
