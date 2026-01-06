@@ -9,19 +9,43 @@
 - platform: group
   name: Living room window advent
   entities:
-    - light.living_room_window
-    - light.living_room_window_2
+    - light.living_room_window_advent_1
+    - light.living_room_window_advent_2
 
 - platform: group
   name: Advent lights
   entities:
     - light.living_room_window_advent
-    - light.office_window_advent
     - light.living_room_window_star
     - light.kitchen_window_star
+    - light.backyard_christmas_light
+    - light.christmas_tree
+
+#christmas
+
 
 # Switich as light
 - platform: switch
   name: Upstairs living room corner
   entity_id: switch.upstairs_living_room_corner
 
+# christmas
+- platform: switch
+  name: Christmas tree
+  entity_id: switch.power_1
+
+- platform: switch
+  name: Living room window advent 1
+  entity_id: switch.power_2
+
+- platform: switch
+  name: Living room window advent 2
+  entity_id: switch.power_3
+
+- platform: switch
+  name: Living room window big star
+  entity_id: switch.power_4
+
+- platform: switch
+  name: Backyard christmas light
+  entity_id: switch.outlet_backyard

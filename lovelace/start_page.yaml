@@ -12,7 +12,30 @@ badges:
     entity: binary_sensor.everyone_asleep
     icon: mdi:bed
     show_name: true
+  - type: entity
+    entity: sensor.climate_1_temperature
+    icon: mdi:thermometer
+    show_name: true
+    name: Conservatory temp
 cards:
+  - type: vertical-stack
+    cards:
+    - type: heading
+      heading: Christmas
+      icon: mdi:pine-tree
+    - type: tile
+      entity: light.living_room_window_advent
+    - type: tile
+      entity: light.living_room_window_big_star
+    - type: tile
+      entity: light.living_room_window_star
+    - type: tile
+      entity: light.kitchen_window_star
+    - type: tile
+      entity: light.bedroom_window
+    - type: tile
+      entity: light.backyard_christmas_light
+
   - type: vertical-stack
     cards:
     - type: heading
@@ -78,6 +101,8 @@ cards:
       entity: light.kids_room_left_bed
     - type: tile
       entity: light.kids_room_right_bed
+    - type: tile
+      entity: light.star_bulb
 
   - type: vertical-stack
     cards:
@@ -86,9 +111,9 @@ cards:
       icon: mdi:bed-king-outline
       badges:
         - type: entity
-          entity: sensor.climate_1_temperature
+          entity: sensor.climate_4_temperature
         - type: entity
-          entity: sensor.climate_1_humidity
+          entity: sensor.climate_4_humidity
     - type: tile
       entity: light.bedroom_ceiling
 

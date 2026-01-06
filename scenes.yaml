@@ -29,7 +29,7 @@
       color_temp: 360
     light.upstairs_living_room_corner: "on"
     # Christmas
-    light.upstairs_living_room_window_advent: "on"
+    light.living_room_window_big_star: "on"
     light.bedroom_window:
       state: "on"
       brigtness: 76
@@ -68,7 +68,7 @@
     # Christmas
     light.advent_lights: "off"
     light.bedroom_window: "off"
-    light.upstairs_living_room_window_advent: "off"
+    light.living_room_window_big_star: "off"
 
 - name: Lights out outdoor
   icon: "mdi:weather-night"
@@ -87,3 +87,13 @@
 - name: Empty storage room
   entities:
     light.storage_room: "off"
+
+- name: Advent light on
+  entities:
+    light.advent_lights:
+      state: "on"
+
+- name: Advent light off
+  entities:
+    light.advent_lights:
+      state: "off"

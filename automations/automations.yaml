@@ -38,6 +38,7 @@
       entity_id: 
         - scene.lights_out_indoor
         - scene.lights_out_outdoor
+        - scene.advent_light_off
     data:
       transition: 5
   mode: single
@@ -59,6 +60,7 @@
       entity_id: 
         - scene.lights_out_indoor
         - scene.lights_out_outdoor
+        - scene.advent_light_off
     data:
       transition: 5
   mode: single
@@ -74,6 +76,7 @@
       entity_id:
       - scene.window_lights
       - scene.outside_lights
+      - scene.advent_light_on
     data:
       transition: 5
 
@@ -89,6 +92,8 @@
       entity_id: 
         - scene.lights_out_indoor
         - scene.lights_out_outdoor
+        - scene.advent_light_off
+        - scene.general_lights_out
     data:
       transition: 5
 
